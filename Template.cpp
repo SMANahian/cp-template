@@ -2,19 +2,26 @@
 #include <vector>
 #include <cmath>
 #include <cstring>
-#include <chrono>
 #include <string>
+#include <set>
 
 using namespace std;
 
 
-typedef long double         ld;
-typedef long long int       lli;
-typedef long int            li;
-typedef vector<ld>          vld;
-typedef vector<lli>         vlli;
-typedef vector<li>          vli;
-typedef vector<int>         vi;
+
+
+typedef long double             ld;
+typedef long int                li;
+typedef unsigned long int       uli;
+typedef long long int           lli;
+typedef unsigned long long int  ulli;
+typedef vector<int>             vi;
+typedef vector<ld>              vld;
+typedef vector<li>              vli;
+typedef vector<uli>             vuli;
+typedef vector<lli>             vlli;
+typedef vector<ulli>            vulli;
+
 
 
 
@@ -37,11 +44,13 @@ typedef vector<int>         vi;
 #define Yes                 cout << "YES" End
 #define No                  cout << "NO" End
 #define finish              return 0
+#define Inf                 (int)1e9
+#define INF                 (lli)1e18
+#define EPS                 (ld)1e-9
+#define PI                  (ld)3.1415926535897932384626433832795
+#define MOD                 1e9+7
+#define MXN                 1e5+7
 
-
-const lli INF=1e18;
-const lli MOD=1e9+7;
-const lli MXN=1e5+7;
 
 
 
@@ -57,6 +66,20 @@ void allPrimeArray(int n) {
         }
     }
 }
+void allPrimeArray(li n) {
+    bool prime[n+1];
+    memset(prime, true, sizeof(prime));
+
+
+    for (li p = 2; p * p <= n; p++) {
+        if (prime[p] == true) {
+            for (li i = p * p; i <= n; i += p)
+                prime[i] = false;
+        }
+    }
+}
+
+
 
 
 void allPrimeVector(int n, vi &arr) {
@@ -76,9 +99,28 @@ void allPrimeVector(int n, vi &arr) {
         if (prime[p])
             arr.pb(p);
 }
+void allPrimeVector(li n, vli &arr) {
+
+    bool prime[n+1];
+    memset(prime, true, sizeof(prime));
+
+    for (li p = 2; p * p <= n; p++) {
+        if (prime[p] == true) {
+            for (li i = p * p; i <= n; i += p)
+                prime[i] = false;
+        }
+    }
 
 
-int smallFactor(int n,vi &primes) {
+    for (li p = 2; p <= n; p++)
+        if (prime[p])
+            arr.pb(p);
+}
+
+
+
+
+int smallFactor(int n, vi &primes) {
     for (int x:primes) {
         if(n % x == 0) {
             return x;
@@ -92,10 +134,11 @@ int smallFactor(int n,vi &primes) {
 
 
 
-int main() {
-    ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    srand(chrono::high_resolution_clock::now().time_since_epoch().count());
 
+
+int main() {
+    ios_base::sync_with_stdio(false), cin.tie(NULL), cout.tie(NULL);
+    
 
     //previous code
 
