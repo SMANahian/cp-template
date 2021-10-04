@@ -1,4 +1,9 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <cstring>
+#include <chrono>
+#include <string>
 
 using namespace std;
 
@@ -18,7 +23,8 @@ typedef vector<int>         vi;
 #define print(x)            cout << x End
 #define f0(i,n)             for(li i=0; i < (n); i++)
 #define f1(i,n)             for(li i=1; i <= (n); i++)
-#define rep(i,a,b)          for(li i=a; i < (b); i++)
+#define rep0(i,a,b)         for(li i=a; i < (b); i++)
+#define rep1(i,a,b)         for(li i=a; i <= (b); i++)
 #define pb                  push_back
 #define lcm(a,b)            (a*b/__gcd(a,b))
 #define srt(v)              sort(v.begin(),v.end())
@@ -30,6 +36,7 @@ typedef vector<int>         vi;
 #define no                  cout << "No" End
 #define Yes                 cout << "YES" End
 #define No                  cout << "NO" End
+#define finish              return 0
 
 
 const lli INF=1e18;
@@ -96,8 +103,9 @@ int main() {
 
     testIn;
     tests {
+        
 
 
     }
-    return 0;
+    finish;
 }
