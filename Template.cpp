@@ -36,7 +36,7 @@ typedef vector<ulli>            vulli;
 #define pb                      push_back
 #define lcm(a,b)                (a*b/__gcd(a,b))
 #define asrt(v)                 sort(v.begin(),v.end())
-#define dsrt(v)                 sort(v.rbegin(), v.rend());
+#define dsrt(v)                 sort(v.rbegin(), v.rend())
 #define sz(a)                   (li)((a).size())
 #define End                     << endl
 #define testIn                  inp(test)
