@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include <vector>
 #include <cmath>
 #include <cstring>
@@ -34,7 +35,8 @@ typedef vector<ulli>            vulli;
 #define rep1(i,a,b)             for(li i=a; i <= (b); i++)
 #define pb                      push_back
 #define lcm(a,b)                (a*b/__gcd(a,b))
-#define srt(v)                  sort(v.begin(),v.end())
+#define asrt(v)                 sort(v.begin(),v.end())
+#define dsrt(v)                 sort(v.rbegin(), v.rend());
 #define sz(a)                   (li)((a).size())
 #define End                     << endl
 #define testIn                  inp(test)
