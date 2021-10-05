@@ -81,7 +81,6 @@ template <typename T> inline void write(T x) {
 		putchar(buf[i]);
 	} while (buf[i++] != '\n');
 }
-
 template <typename T> inline T readInt() {
 	T n=0,s=1;
 	char p=getchar();
@@ -98,6 +97,8 @@ template <typename T> inline T readInt() {
 
 	return n*s;
 }
+
+
 
 
 template <typename dataType>
