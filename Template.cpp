@@ -62,13 +62,70 @@ typedef vector<ulli>            vulli;
 #define PI                      (ld)3.1415926535897932384626433832795
 #define MOD                     1e9+7
 #define MXN                     1e5+7
+#define read(type)              readInt<type>()
 
 
 
-template<typename T>
-T gcd(T a, T b) {
+template <typename T> inline void write(T x) {
+	int i = 20;
+	char buf[21];
+	buf[20] = '\n';
+
+	do
+	{
+		buf[--i] = x % 10 + '0';
+		x/= 10;
+	}while(x);
+	do
+	{
+		putchar(buf[i]);
+	} while (buf[i++] != '\n');
+}
+
+template <typename T> inline T readInt() {
+	T n=0,s=1;
+	char p=getchar();
+	if(p=='-')
+		s=-1;
+	while((p<'0'||p>'9')&&p!=EOF&&p!='-')
+		p=getchar();
+	if(p=='-')
+		s=-1,p=getchar();
+	while(p>='0'&&p<='9') {
+		n = (n<< 3) + (n<< 1) + (p - '0');
+		p=getchar();
+	}
+
+	return n*s;
+}
+
+
+template <typename dataType>
+void scanInt(dataType &number) {
+    bool negative = false;
+    register dataType c;
+  
+    number = 0;
+  
+    c = getchar();
+    if (c=='-') {
+        negative = true;
+        c = getchar();
+    }
+
+    for (; (c>47 && c<58); c=getchar())
+        number = number*10 + c - 48;
+
+    if (negative)
+        number *= -1;
+}
+
+
+
+template<typename dataType>
+inline dataType gcd(dataType a, dataType b) {
     while (b!=0) {
-        T c = b;
+        dataType c = b;
         b = a % b;
         a = c;
     }
@@ -78,26 +135,15 @@ T gcd(T a, T b) {
 
 
 
-void allPrimeArray(int n) {
+template<typename dataType>
+void allPrimeArray(dataType n) {
     bool prime[n+1];
     memset(prime, true, sizeof(prime));
 
 
-    for (int p = 2; p * p <= n; p++) {
+    for (dataType p = 2; p * p <= n; p++) {
         if (prime[p] == true) {
-            for (int i = p * p; i <= n; i += p)
-                prime[i] = false;
-        }
-    }
-}
-void allPrimeArray(li n) {
-    bool prime[n+1];
-    memset(prime, true, sizeof(prime));
-
-
-    for (li p = 2; p * p <= n; p++) {
-        if (prime[p] == true) {
-            for (li i = p * p; i <= n; i += p)
+            for (dataType i = p * p; i <= n; i += p)
                 prime[i] = false;
         }
     }
@@ -106,37 +152,21 @@ void allPrimeArray(li n) {
 
 
 
-void allPrimeVector(int n, vi &arr) {
+template<typename dataType1, typename dataType2>
+void allPrimeVector(dataType1 n, dataType2 &arr) {
 
     bool prime[n+1];
     memset(prime, true, sizeof(prime));
 
-    for (int p = 2; p * p <= n; p++) {
+    for (dataType1 p = 2; p * p <= n; p++) {
         if (prime[p] == true) {
-            for (int i = p * p; i <= n; i += p)
+            for (dataType1 i = p * p; i <= n; i += p)
                 prime[i] = false;
         }
     }
 
 
-    for (int p = 2; p <= n; p++)
-        if (prime[p])
-            arr.pb(p);
-}
-void allPrimeVector(li n, vli &arr) {
-
-    bool prime[n+1];
-    memset(prime, true, sizeof(prime));
-
-    for (li p = 2; p * p <= n; p++) {
-        if (prime[p] == true) {
-            for (li i = p * p; i <= n; i += p)
-                prime[i] = false;
-        }
-    }
-
-
-    for (li p = 2; p <= n; p++)
+    for (dataType1 p = 2; p <= n; p++)
         if (prime[p])
             arr.pb(p);
 }
