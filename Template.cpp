@@ -49,12 +49,12 @@ typedef vector<ulli>            vulli;
 #define End                     << endl
 #define testIn                  inp(test)
 #define tests                   for(int testNo=1; testNo <= (test); testNo++)
-#define yy                      cout << "yes" End
-#define nn                      cout << "no" End
-#define yes                     cout << "Yes" End
-#define no                      cout << "No" End
-#define Yes                     cout << "YES" End
-#define No                      cout << "NO" End
+#define yes                     cout << "yes" End
+#define no                      cout << "no" End
+#define Yes                     cout << "Yes" End
+#define No                      cout << "No" End
+#define YES                     cout << "YES" End
+#define NO                      cout << "NO" End
 #define finish                  return 0
 #define Inf                     (int)1e9
 #define INF                     (lli)1e18
