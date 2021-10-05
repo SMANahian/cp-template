@@ -6,7 +6,15 @@
 #include <string>
 #include <set>
 
-using namespace std;
+
+
+using std::min;
+using std::max;
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+using std::vector;
 
 
 
@@ -41,6 +49,8 @@ typedef vector<ulli>            vulli;
 #define End                     << endl
 #define testIn                  inp(test)
 #define tests                   for(int testNo=1; testNo <= (test); testNo++)
+#define yy                      cout << "yes" End
+#define nn                      cout << "no" End
 #define yes                     cout << "Yes" End
 #define no                      cout << "No" End
 #define Yes                     cout << "YES" End
@@ -139,7 +149,9 @@ int smallFactor(int n, vi &primes) {
 
 
 int main() {
-    ios_base::sync_with_stdio(false), cin.tie(NULL), cout.tie(NULL);
+    std::ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
     
 
     //previous code
