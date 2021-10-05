@@ -12,7 +12,6 @@ using std::min;
 using std::max;
 using std::cin;
 using std::cout;
-using std::endl;
 using std::string;
 using std::vector;
 
@@ -34,8 +33,8 @@ typedef vector<ulli>            vulli;
 
 
 
-#define inp(n)                  int n; cin >> n
-#define Inp(n)                  lli n; cin >> n
+#define inp(n)                  int n; scanInt(n)
+#define Inp(n)                  lli n; scanInt(n)
 #define print(x)                cout << x End
 #define f0(i,n)                 for(li i=0; i < (n); i++)
 #define f1(i,n)                 for(li i=1; i <= (n); i++)
@@ -46,7 +45,7 @@ typedef vector<ulli>            vulli;
 #define asrt(v)                 sort(v.begin(),v.end())
 #define dsrt(v)                 sort(v.rbegin(), v.rend())
 #define sz(a)                   (li)((a).size())
-#define End                     << endl
+#define End                     << "\n"
 #define testIn                  inp(test)
 #define tests                   for(int testNo=1; testNo <= (test); testNo++)
 #define yes                     cout << "yes" End
@@ -62,41 +61,6 @@ typedef vector<ulli>            vulli;
 #define PI                      (ld)3.1415926535897932384626433832795
 #define MOD                     1e9+7
 #define MXN                     1e5+7
-#define read(type)              readInt<type>()
-
-
-
-template <typename T> inline void write(T x) {
-	int i = 20;
-	char buf[21];
-	buf[20] = '\n';
-
-	do
-	{
-		buf[--i] = x % 10 + '0';
-		x/= 10;
-	}while(x);
-	do
-	{
-		putchar(buf[i]);
-	} while (buf[i++] != '\n');
-}
-template <typename T> inline T readInt() {
-	T n=0,s=1;
-	char p=getchar();
-	if(p=='-')
-		s=-1;
-	while((p<'0'||p>'9')&&p!=EOF&&p!='-')
-		p=getchar();
-	if(p=='-')
-		s=-1,p=getchar();
-	while(p>='0'&&p<='9') {
-		n = (n<< 3) + (n<< 1) + (p - '0');
-		p=getchar();
-	}
-
-	return n*s;
-}
 
 
 
@@ -105,10 +69,10 @@ template <typename dataType>
 void scanInt(dataType &number) {
     bool negative = false;
     register dataType c;
-  
+
     number = 0;
-  
     c = getchar();
+
     if (c=='-') {
         negative = true;
         c = getchar();
@@ -195,7 +159,7 @@ int main() {
     std::ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
-    
+
 
     //previous code
 
