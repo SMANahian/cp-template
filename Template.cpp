@@ -42,7 +42,7 @@ typedef vector<ulli>            vulli;
 #define rep0(i,a,b)             for(li i=a; i < (b); i++)
 #define rep1(i,a,b)             for(li i=a; i <= (b); i++)
 #define pb                      push_back
-#define lcm(a,b)                (a*b/__gcd(a,b))
+#define lcm(a,b)                (a*b/gcd(a,b))
 #define asrt(v)                 sort(v.begin(),v.end())
 #define dsrt(v)                 sort(v.rbegin(), v.rend())
 #define sz(a)                   (li)((a).size())
@@ -62,6 +62,18 @@ typedef vector<ulli>            vulli;
 #define PI                      (ld)3.1415926535897932384626433832795
 #define MOD                     1e9+7
 #define MXN                     1e5+7
+
+
+
+template<typename T>
+T gcd(T a, T b) {
+    while (b!=0) {
+        T c = b;
+        b = a % b;
+        a = c;
+    }
+    return a;
+}
 
 
 
