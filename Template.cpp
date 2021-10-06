@@ -4,6 +4,7 @@
 #include <cmath>
 #include <cstring>
 #include <string>
+#include <ctime>
 #include <set>
 
 
@@ -105,7 +106,6 @@ void allPrimeArray(dataType n) {
     bool prime[n+1];
     memset(prime, true, sizeof(prime));
 
-
     for (dataType p = 2; p * p <= n; p++) {
         if (prime[p] == true) {
             for (dataType i = p * p; i <= n; i += p)
@@ -119,7 +119,6 @@ void allPrimeArray(dataType n) {
 
 template<typename dataType1, typename dataType2>
 void allPrimeVector(dataType1 n, dataType2 &arr) {
-
     bool prime[n+1];
     memset(prime, true, sizeof(prime));
 
@@ -129,7 +128,6 @@ void allPrimeVector(dataType1 n, dataType2 &arr) {
                 prime[i] = false;
         }
     }
-
 
     for (dataType1 p = 2; p <= n; p++)
         if (prime[p])
@@ -160,6 +158,8 @@ int main() {
     cin.tie(NULL);
     cout.tie(NULL);
 
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 
     //previous code
 
