@@ -104,7 +104,7 @@ inline dataType gcd(dataType a, dataType b) {
 
 
 template<typename dataType>
-void allPrimeArray(dataType n) {
+void allPrimeBoolArray(dataType n) {
     bool prime[n+1];
     memset(prime, true, sizeof(prime));
 
@@ -163,7 +163,7 @@ int main() {
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 
-    //previous code
+    // Previous code
 
 
 
