@@ -19,49 +19,51 @@ using std::vector;
 
 
 
-typedef long double             ld;
-typedef long int                li;
-typedef unsigned long int       uli;
-typedef long long int           lli;
-typedef unsigned long long int  ulli;
-typedef vector<int>             vi;
-typedef vector<ld>              vld;
-typedef vector<li>              vli;
-typedef vector<uli>             vuli;
-typedef vector<lli>             vlli;
-typedef vector<ulli>            vulli;
+typedef long double                 ld;
+typedef unsigned int                ui;
+typedef long int                    li;
+typedef unsigned long int           uli;
+typedef long long int               lli;
+typedef unsigned long long int      ulli;
+typedef vector<int>                 vi;
+typedef vector<ld>                  vld;
+typedef vector<ui>                  vui;
+typedef vector<li>                  vli;
+typedef vector<uli>                 vuli;
+typedef vector<lli>                 vlli;
+typedef vector<ulli>                vulli;
 
 
 
 
-#define inp(n)                  int n; cin >> n
-#define Inp(n)                  lli n; cin >> n
-#define print(x)                cout << x End
-#define f0(i,n)                 for(li i=0; i < (n); i++)
-#define f1(i,n)                 for(li i=1; i <= (n); i++)
-#define rep0(i,a,b)             for(li i=a; i < (b); i++)
-#define rep1(i,a,b)             for(li i=a; i <= (b); i++)
-#define pb                      push_back
-#define lcm(a,b)                (a*b/gcd(a,b))
-#define asrt(v)                 sort(v.begin(),v.end())
-#define dsrt(v)                 sort(v.rbegin(), v.rend())
-#define sz(a)                   (li)((a).size())
-#define End                     << "\n"
-#define testIn                  inp(test)
-#define tests                   for(int testNo=1; testNo <= (test); testNo++)
-#define yes                     cout << "yes" End
-#define no                      cout << "no" End
-#define Yes                     cout << "Yes" End
-#define No                      cout << "No" End
-#define YES                     cout << "YES" End
-#define NO                      cout << "NO" End
-#define finish                  return 0
-#define Inf                     (int)1e9
-#define INF                     (lli)1e18
-#define EPS                     (ld)1e-9
-#define PI                      (ld)3.1415926535897932384626433832795
-#define MOD                     1e9+7
-#define MXN                     1e5+7
+#define inp(n)                      int n; cin >> n
+#define Inp(n)                      lli n; cin >> n
+#define print(x)                    cout << x End
+#define f0(i,n)                     for(li i=0; i < (n); i++)
+#define f1(i,n)                     for(li i=1; i <= (n); i++)
+#define rep0(i,a,b)                 for(li i=a; i < (b); i++)
+#define rep1(i,a,b)                 for(li i=a; i <= (b); i++)
+#define pb                          push_back
+#define lcm(a,b)                    (a*b/gcd(a,b))
+#define asrt(v)                     sort(v.begin(),v.end())
+#define dsrt(v)                     sort(v.rbegin(), v.rend())
+#define sz(a)                       (li)((a).size())
+#define End                         << "\n"
+#define testIn                      inp(test)
+#define tests                       for(int testNo=1; testNo <= (test); testNo++)
+#define yes                         cout << "yes" End
+#define no                          cout << "no" End
+#define Yes                         cout << "Yes" End
+#define No                          cout << "No" End
+#define YES                         cout << "YES" End
+#define NO                          cout << "NO" End
+#define finish                      return 0
+#define Inf                         (int)1e9
+#define INF                         (lli)1e18
+#define EPS                         (ld)1e-9
+#define PI                          (ld)3.1415926535897932384626433832795
+#define MOD                         1e9+7
+#define MXN                         1e5+7
 
 
 
@@ -69,7 +71,7 @@ typedef vector<ulli>            vulli;
 template <typename dataType>
 void scanInt(dataType &number) {
     bool negative = false;
-    register dataType c;
+    register char c;
 
     number = 0;
     c = getchar();
