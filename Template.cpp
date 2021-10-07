@@ -34,8 +34,8 @@ typedef vector<ulli>            vulli;
 
 
 
-#define inp(n)                  int n; scanInt(n)
-#define Inp(n)                  lli n; scanInt(n)
+#define inp(n)                  int n; cin >> n
+#define Inp(n)                  lli n; cin >> n
 #define print(x)                cout << x End
 #define f0(i,n)                 for(li i=0; i < (n); i++)
 #define f1(i,n)                 for(li i=1; i <= (n); i++)
