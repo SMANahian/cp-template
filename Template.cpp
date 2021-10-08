@@ -4,6 +4,7 @@
 #include <cmath>
 #include <cstring>
 #include <string>
+#include <bitset>
 #include <ctime>
 #include <set>
 
@@ -11,6 +12,7 @@
 
 using std::min;
 using std::max;
+using std::to_string;
 using std::cin;
 using std::cout;
 using std::string;
@@ -136,6 +138,42 @@ void allPrimeVector(dataType1 n, dataType2 &arr) {
             arr.pb(p);
 }
 
+
+
+
+template<typename dataType>
+string decimalToBinary(int n) {
+    string s = std::bitset<64> (n).to_string();
+
+    const auto loc1 = s.find('1');
+
+    if(loc1 != string::npos)
+        return s.substr(loc1);
+     
+    return "0";
+}
+
+
+
+
+template<typename dataType>
+dataType nthBaseToDecimal(string s, dataType n) {
+    dataType dec_value = 0;
+ 
+    dataType base = 1;
+ 
+    for(dataType i = (s.size()-1); i >=0; i--) {
+        dataType last_digit = s[i]-'0';
+ 
+        dec_value += ((last_digit*base) % ((li)1e9 +7));
+        dec_value %= ((li)1e9 +7);
+ 
+        base = base * n;
+        base %= ((li)1e9 +7);
+    }
+ 
+    return dec_value;
+}
 
 
 
