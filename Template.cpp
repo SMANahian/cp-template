@@ -1,12 +1,13 @@
 #include <iostream>
 #include <algorithm>
-#include <vector>
-#include <cmath>
 #include <cstring>
 #include <string>
+#include <vector>
+#include <set>
+#include <cmath>
 #include <bitset>
 #include <ctime>
-#include <set>
+
 
 
 
@@ -46,10 +47,13 @@ typedef vector<ulli>                vulli;
 #define rep0(i,a,b)                 for(li i=a; i < (b); i++)
 #define rep1(i,a,b)                 for(li i=a; i <= (b); i++)
 #define pb                          push_back
-#define lcm(a,b)                    (a*b/gcd(a,b))
-#define asrt(v)                     sort(v.begin(),v.end())
-#define dsrt(v)                     sort(v.rbegin(), v.rend())
-#define sz(a)                       (li)((a).size())
+#define lcm(a,b)                    ((a*b)/gcd(a,b))
+#define all(x)                      x.begin(), x.end()
+#define rall(x)                     x.rbegin(), x.rend()
+#define asrt(v)                     sort(all(v))
+#define dsrt(v)                     sort(rall(v))
+#define revStr(str)                 string(rall(str))
+#define sz(a)                       ((a).size())
 #define End                         << "\n"
 #define testIn                      inp(test)
 #define tests                       for(int testNo=1; testNo <= (test); testNo++)
@@ -60,41 +64,19 @@ typedef vector<ulli>                vulli;
 #define YES                         cout << "YES" End
 #define NO                          cout << "NO" End
 #define finish                      return 0
-#define Inf                         (int)1e9
-#define INF                         (lli)1e18
-#define EPS                         (ld)1e-9
-#define PI                          (ld)3.1415926535897932384626433832795
-#define MOD                         1e9+7
-#define MXN                         1e5+7
+#define Inf                         (li)(1e9)
+#define INF                         (lli)(1e18)
+#define EPS                         (ld)(1e-9)
+#define PI                          (ld)(3.141592653589793238462643383279502884197169)
+#define MOD                         (li)(1e9+7)
+#define MXN                         (int)(1e5+7)
 
-
-
-
-template <typename dataType>
-void scanInt(dataType &number) {
-    bool negative = false;
-    register char c;
-
-    number = 0;
-    c = getchar();
-
-    if (c=='-') {
-        negative = true;
-        c = getchar();
-    }
-
-    for (; (c>47 && c<58); c=getchar())
-        number = number*10 + c - 48;
-
-    if (negative)
-        number *= -1;
-}
 
 
 
 template<typename dataType>
-inline dataType gcd(dataType a, dataType b) {
-    while (b!=0) {
+dataType gcd(dataType a, dataType b) {
+    while (b != 0) {
         dataType c = b;
         b = a % b;
         a = c;
@@ -106,28 +88,23 @@ inline dataType gcd(dataType a, dataType b) {
 
 
 template<typename dataType>
-void allPrimeBoolArray(dataType n) {
-    bool prime[n+1];
+void allPrimeBoolArray(dataType n, bool* prime) {
     memset(prime, true, sizeof(prime));
 
     for (dataType p = 2; p * p <= n; p++) {
-        if (prime[p] == true) {
+        if (prime[p]) {
             for (dataType i = p * p; i <= n; i += p)
                 prime[i] = false;
         }
     }
 }
-
-
-
-
 template<typename dataType1, typename dataType2>
 void allPrimeVector(dataType1 n, dataType2 &arr) {
     bool prime[n+1];
     memset(prime, true, sizeof(prime));
 
     for (dataType1 p = 2; p * p <= n; p++) {
-        if (prime[p] == true) {
+        if (prime[p]) {
             for (dataType1 i = p * p; i <= n; i += p)
                 prime[i] = false;
         }
@@ -141,8 +118,9 @@ void allPrimeVector(dataType1 n, dataType2 &arr) {
 
 
 
+
 template<typename dataType>
-string decimalToBinary(int n) {
+string decimalToBinary(dataType n) {
     string s = std::bitset<64> (n).to_string();
 
     const auto loc1 = s.find('1');
@@ -153,29 +131,42 @@ string decimalToBinary(int n) {
     return "0";
 }
 
-
-
-
 template<typename dataType>
-dataType nthBaseToDecimal(string s, dataType n) {
-    dataType dec_value = 0;
- 
-    dataType base = 1;
- 
-    for(dataType i = (s.size()-1); i >=0; i--) {
-        dataType last_digit = s[i]-'0';
- 
-        dec_value += ((last_digit*base) % ((li)1e9 +7));
-        dec_value %= ((li)1e9 +7);
- 
-        base = base * n;
-        base %= ((li)1e9 +7);
-    }
- 
-    return dec_value;
+dataType val(char c) {
+    if (c >= '0' && c <= '9')
+        return (dataType)c - '0';
+    else
+        return (dataType)c - 'A' + 10;
 }
-
-
+template<typename dataType>
+dataType nthBaseToDecimal(string str, dataType base) {
+    dataType len = str.size();
+    dataType power = 1;
+    dataType num = 0; 
+    dataType i;
+ 
+    for (i = len - 1; i >= 0; i--) {
+        num += (val<dataType>(str[i]) * power);
+        power *= base;
+    }
+    return num;
+}
+template<typename dataType>
+char reVal(dataType num) {
+    if (num >= 0 && num <= 9)
+        return (char)(num + '0');
+    else
+        return (char)(num - 10 + 'A');
+}
+template<typename dataType>
+string nthBasefromDeci(dataType inputNum, dataType base) {
+    string res;
+    while (inputNum > 0) {
+        res += reVal(inputNum % base);
+        inputNum /= base;
+    }
+    return revStr(res);
+}
 
 int smallFactor(int n, vi &primes) {
     for (int x:primes) {
@@ -207,7 +198,9 @@ int main() {
 
     testIn;
     tests {
-        
+
+
+
 
 
     }
