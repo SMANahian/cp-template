@@ -1,4 +1,4 @@
-from math import sin,cos,sqrt
+import math
 
 
 
