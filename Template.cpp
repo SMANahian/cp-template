@@ -178,6 +178,7 @@ int smallFactor(int n, vi &primes) {
             break;
         }
     }
+    return 7;
 }
 
 
@@ -189,15 +190,16 @@ int main() {
     cin.tie(NULL);
     cout.tie(NULL);
 
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
+    // freopen("input.txt", "r", stdin);
+    // freopen("output.txt", "w", stdout);
 
     // Previous code
 
 
-
     testIn;
     tests {
+        
+        
 
 
 
