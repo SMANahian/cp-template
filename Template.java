@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
  
 
-public class Main {
+public class Template {
     static class Reader {
         final private int BUFFER_SIZE = 1 << 16;
         private DataInputStream din;
@@ -30,7 +30,7 @@ public class Main {
  
 
         public String readLine() throws IOException {
-            byte[] buf = new byte[64]; // line length
+            byte[] buf = new byte[64]; // idk why 64
             int cnt = 0, c;
             while ((c = read()) != -1) {
                 if (c == '\n') {
@@ -50,16 +50,15 @@ public class Main {
         public int nextInt() throws IOException {
             int ret = 0;
             byte c = read();
-            while (c <= ' ') {
+            while (c <= ' ')
                 c = read();
-            }
             boolean neg = (c == '-');
             if (neg)
                 c = read();
             do {
                 ret = ret * 10 + c - '0';
             } while ((c = read()) >= '0' && c <= '9');
- 
+
             if (neg)
                 return -ret;
             return ret;
@@ -77,6 +76,7 @@ public class Main {
             do {
                 ret = ret * 10 + c - '0';
             } while ((c = read()) >= '0' && c <= '9');
+
             if (neg)
                 return -ret;
             return ret;
@@ -96,7 +96,7 @@ public class Main {
 
             if (c == '.') {
                 while ((c = read()) >= '0' && c <= '9') {
-                    ret += (c - '0') / (div *= 10);
+                    ret += ((c - '0') / (div *= 10));
                 }
             }
  
