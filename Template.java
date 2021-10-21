@@ -8,7 +8,6 @@ import java.util.StringTokenizer;
 
 public class Main {
     static class Reader {
-        
         final private int BUFFER_SIZE = 1 << 16;
         private DataInputStream din;
         private byte[] buffer;
@@ -24,10 +23,7 @@ public class Main {
         public Reader(String file_name) throws IOException {
             din = new DataInputStream(
                 new FileInputStream(file_name)
-                );
-                ghdf(
-                
-                )
+            );
             buffer = new byte[BUFFER_SIZE];
 
             bufferPointer = bytesRead = 0;
