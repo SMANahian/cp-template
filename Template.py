@@ -34,26 +34,24 @@ def val(c):
     else:
         return ord(c) - ord('A') + 10
 
-def toDeci(str,base):
+def nthBaseToDecimal(str, base):
     llen = len(str)
     power = 1 
     num = 0 
  
     for i in range(llen - 1, -1, -1):
-        if val(str[i]) >= base:
-            print('Invalid Number')
-            return -1
-        num += val(str[i]) * power
-        power = power * base
+        num += (val(str[i]) * power)
+        power *= base
+
     return num
 
 def reVal(num):
     if (num >= 0 and num <= 9):
-        return chr(num + ord('0'));
+        return chr(num + ord('0'))
     else:
-        return chr(num - 10 + ord('A'));
+        return chr(num - 10 + ord('A'))
 
-def fromDeci(inputNum, base):
+def nthBasefromDeci(inputNum, base):
     res = ""
 
     while (inputNum > 0):
