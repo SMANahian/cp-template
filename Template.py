@@ -55,7 +55,6 @@ def reVal(num):
 
 def fromDeci(inputNum, base):
     res = ""
-    index = 0; 
 
     while (inputNum > 0):
         res += reVal(inputNum % base)
