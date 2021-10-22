@@ -99,7 +99,7 @@ void allPrimeBoolArray(dataType n, bool* prime) {
     }
 }
 template<typename dataType1, typename dataType2>
-void allPrimeVector(dataType1 n, dataType2 &arr) {
+void allPrimeVector(dataType1 n, dataType2 &primeList) {
     bool prime[n+1];
     memset(prime, true, sizeof(prime));
 
@@ -112,7 +112,7 @@ void allPrimeVector(dataType1 n, dataType2 &arr) {
 
     for (dataType1 p = 2; p <= n; p++)
         if (prime[p])
-            arr.pb(p);
+            primeList.pb(p);
 }
 
 
@@ -140,15 +140,15 @@ dataType val(char c) {
 }
 template<typename dataType>
 dataType nthBaseToDecimal(string str, dataType base) {
-    dataType len = str.size();
-    dataType power = 1;
+    int len = str.length();
+    int power = 1;
     dataType num = 0; 
-    dataType i;
  
-    for (i = len - 1; i >= 0; i--) {
+    for (int i = len - 1; i >= 0; i--) {
         num += (val<dataType>(str[i]) * power);
         power *= base;
     }
+
     return num;
 }
 template<typename dataType>
@@ -160,7 +160,7 @@ char reVal(dataType num) {
 }
 template<typename dataType>
 string nthBasefromDeci(dataType inputNum, dataType base) {
-    string res;
+    string res = "";
     while (inputNum > 0) {
         res += reVal(inputNum % base);
         inputNum /= base;
