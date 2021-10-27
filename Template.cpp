@@ -55,7 +55,7 @@ typedef vector<ulli>                vulli;
 #define revStr(str)                 string(rall(str))
 #define sz(a)                       ((a).size())
 #define End                         << "\n"
-#define testIn                      inp(test)
+#define testIn                      cin >> test
 #define tests                       for(int testNo=1; testNo <= (test); testNo++)
 #define yes                         cout << "yes" End
 #define no                          cout << "no" End
@@ -72,7 +72,17 @@ typedef vector<ulli>                vulli;
 #define MXN                         (int)(1e5+7)
 
 
+void solve1() {
 
+}
+
+void solve2() {
+
+}
+
+void solve3() {
+
+}
 
 int main() {
     std::ios_base::sync_with_stdio(false);
@@ -84,16 +94,14 @@ int main() {
 
     // Previous code
 
+    int test = 1;
 
     testIn;
     tests {
-        
-        
 
-
-
-
+        solve1();
 
     }
+
     finish;
 }

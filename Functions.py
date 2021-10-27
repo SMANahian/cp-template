@@ -2,7 +2,6 @@ import math
 
 
 
-
 def allPrimeBoolArray(n, primeBoolList):
     primeBoolList = [True for i in range(n+1)]
     p = 2
@@ -12,6 +11,7 @@ def allPrimeBoolArray(n, primeBoolList):
                 primeBoolList[i] = False
 
         p += 1
+
 
 def allPrimeList(n, primeList):
     prime = [True for i in range(n+1)]
@@ -26,7 +26,9 @@ def allPrimeList(n, primeList):
     for p in range(2, n + 1):
         if prime[p]:
             primeList.append(p)
- 
+
+
+
 
 def val(c):
     if c >= '0' and c <= '9':
@@ -60,16 +62,3 @@ def nthBasefromDeci(inputNum, base):
 
     return res[::-1]
 
-
-def main():
-    # Previous code
-
-
-    test = int(input())
-    for testNo in range(1, test + 1):
-        pass
-
-
-
-if __name__ == "__main__":
-    main()

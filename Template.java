@@ -1,30 +1,41 @@
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.*;
 
 
 public class Template {
+
+    private static Reader input = new Reader();
+    
     public static void main(String[] args) throws IOException {
-        Reader input = new Reader();
+        
         // Previous code
         
 
 
+        long test = 1;
 
-        long test = input.nextLong();
+        test = input.nextLong();
         for (long testNo = 1; testNo <= test; testNo++) {
-            
-            
 
-
+            solve1();
 
         }
         input.close();
     }
 
 
+    static void solve1 () {
 
+    }
+
+    static void solve2 () {
+        
+    }
+
+    static void solve3 () {
+        
+    }
     
 
     static class Reader {
