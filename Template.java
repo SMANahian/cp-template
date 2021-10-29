@@ -16,6 +16,7 @@ public class Template {
         long test = 1;
 
         test = input.nextLong();
+        
         for (long testNo = 1; testNo <= test; testNo++) {
 
             solve1();
