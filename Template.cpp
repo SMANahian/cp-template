@@ -13,6 +13,7 @@
 
 using std::min;
 using std::max;
+using std::sort;
 using std::to_string;
 using std::cin;
 using std::cout;
@@ -97,6 +98,7 @@ int main() {
     int test = 1;
 
     testIn;
+    
     tests {
 
         solve1();
