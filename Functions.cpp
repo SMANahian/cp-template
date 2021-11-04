@@ -11,6 +11,7 @@
 
 
 
+
 using std::min;
 using std::max;
 using std::sort;
@@ -19,6 +20,7 @@ using std::cin;
 using std::cout;
 using std::string;
 using std::vector;
+
 
 
 
@@ -36,6 +38,7 @@ typedef vector<li>                  vli;
 typedef vector<uli>                 vuli;
 typedef vector<lli>                 vlli;
 typedef vector<ulli>                vulli;
+
 
 
 
@@ -71,6 +74,7 @@ typedef vector<ulli>                vulli;
 #define PI                          (ld)(3.141592653589793238462643383279502884197169)
 #define MOD                         (li)(1e9+7)
 #define MXN                         (int)(1e5+7)
+
 
 
 
@@ -188,9 +192,11 @@ void solve1() {
 
 }
 
+
 void solve2() {
 
 }
+
 
 void solve3() {
 
