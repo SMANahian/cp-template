@@ -3,11 +3,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
 
-
 public class Functions {
-
     private static Reader input = new Reader();
-    
     public static void main(String[] args) throws IOException {
         
         // Previous code
@@ -26,20 +23,16 @@ public class Functions {
         input.close();
     }
 
-
     public static void solve1 () {
 
     }
-
     public static void solve2 () {
         
     }
-
     public static void solve3 () {
         
     }
     
-
 
     static void allPrimeBoolArray(long n, Boolean[] prime) {
         for (int i = 0; i <= n; i++)
@@ -129,7 +122,6 @@ public class Functions {
         public String readLine() throws IOException {
             byte[] buf = new byte[64]; // line length
             int cnt = 0, c;
-
             while ((c = read()) != -1) {
                 if (c == '\n') {
                     if (cnt != 0) {
@@ -140,19 +132,15 @@ public class Functions {
                 }
                 buf[cnt++] = (byte) c;
             }
-
             return new String(buf, 0, cnt);
         }
         public int nextInt() throws IOException {
             int ret = 0;
             byte c = read();
-
             while (c <= ' ') {
                 c = read();
             }
-
             boolean neg = (c == '-');
-
             if (neg)
                 c = read();
             do {
@@ -166,12 +154,9 @@ public class Functions {
         public long nextLong() throws IOException {
             long ret = 0;
             byte c = read();
-
             while (c <= ' ')
                 c = read();
-
             boolean neg = (c == '-');
-
             if (neg)
                 c = read();
             do {
@@ -185,12 +170,9 @@ public class Functions {
         public double nextDouble() throws IOException {
             double ret = 0, div = 1;
             byte c = read();
-
             while (c <= ' ')
                 c = read();
-
             boolean neg = (c == '-');
-
             if (neg)
                 c = read();
             do {
@@ -223,7 +205,4 @@ public class Functions {
             din.close();
         }
     }
-
-
-
 }
