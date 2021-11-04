@@ -2,11 +2,8 @@ import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-
 public class Template {
-
     private static Reader input = new Reader();
-    
     public static void main(String[] args) throws IOException {
         
         // Previous code
@@ -25,19 +22,15 @@ public class Template {
         input.close();
     }
 
-
     static void solve1 () {
 
     }
-
     static void solve2 () {
         
     }
-
     static void solve3 () {
         
     }
-    
 
     static class Reader {
         final private int BUFFER_SIZE = 1 << 16;
@@ -58,7 +51,6 @@ public class Template {
         public String readLine() throws IOException {
             byte[] buf = new byte[64]; // line length
             int cnt = 0, c;
-
             while ((c = read()) != -1) {
                 if (c == '\n') {
                     if (cnt != 0) {
@@ -69,19 +61,15 @@ public class Template {
                 }
                 buf[cnt++] = (byte) c;
             }
-
             return new String(buf, 0, cnt);
         }
         public int nextInt() throws IOException {
             int ret = 0;
             byte c = read();
-
             while (c <= ' ') {
                 c = read();
             }
-
             boolean neg = (c == '-');
-
             if (neg)
                 c = read();
             do {
@@ -95,12 +83,9 @@ public class Template {
         public long nextLong() throws IOException {
             long ret = 0;
             byte c = read();
-
             while (c <= ' ')
                 c = read();
-
             boolean neg = (c == '-');
-
             if (neg)
                 c = read();
             do {
@@ -114,12 +99,9 @@ public class Template {
         public double nextDouble() throws IOException {
             double ret = 0, div = 1;
             byte c = read();
-
             while (c <= ' ')
                 c = read();
-
             boolean neg = (c == '-');
-
             if (neg)
                 c = read();
             do {
@@ -152,7 +134,4 @@ public class Template {
             din.close();
         }
     }
-
-
-
 }
