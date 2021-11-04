@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <set>
+#include <list>
 #include <cmath>
 #include <bitset>
 #include <ctime>
@@ -18,6 +19,8 @@ using std::sort;
 using std::to_string;
 using std::cin;
 using std::cout;
+using std::set;
+using std::list;
 using std::string;
 using std::vector;
 
@@ -38,6 +41,21 @@ typedef vector<li>                  vli;
 typedef vector<uli>                 vuli;
 typedef vector<lli>                 vlli;
 typedef vector<ulli>                vulli;
+typedef list<int>                   lsi;
+typedef list<ld>                    lsld;
+typedef list<ui>                    lsui;
+typedef list<li>                    lsli;
+typedef list<uli>                   lsuli;
+typedef list<lli>                   lslli;
+typedef list<ulli>                  lsulli;
+typedef set<int>                    si;
+typedef set<ld>                     sld;
+typedef set<ui>                     sui;
+typedef set<li>                     sli;
+typedef set<uli>                    suli;
+typedef set<lli>                    slli;
+typedef set<ulli>                   sulli;
+
 
 
 
