@@ -11,6 +11,7 @@
 
 
 
+
 using std::min;
 using std::max;
 using std::sort;
@@ -19,6 +20,7 @@ using std::cin;
 using std::cout;
 using std::string;
 using std::vector;
+
 
 
 
@@ -36,6 +38,7 @@ typedef vector<li>                  vli;
 typedef vector<uli>                 vuli;
 typedef vector<lli>                 vlli;
 typedef vector<ulli>                vulli;
+
 
 
 
@@ -73,17 +76,38 @@ typedef vector<ulli>                vulli;
 #define MXN                         (int)(1e5+7)
 
 
+
+
+template<typename dataType>
+dataType gcd(dataType a, dataType b) {
+    while (b != 0) {
+        dataType c = b;
+        b = a % b;
+        a = c;
+    }
+    return a;
+}
+
+
+
+
+
+
 void solve1() {
 
 }
+
 
 void solve2() {
 
 }
 
+
 void solve3() {
 
 }
+
+
 
 int main() {
     std::ios_base::sync_with_stdio(false);
@@ -101,7 +125,7 @@ int main() {
     
     tests {
 
-        solve1();
+        
 
     }
 
