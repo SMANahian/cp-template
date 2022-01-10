@@ -156,7 +156,7 @@ void solve3() {
 int main() {
 
     #ifdef LOCAL
-        freopen("in.txt", "r", stdin);
+        freopen("input.txt", "r", stdin);
         freopen("output.txt", "w", stdout);
     #else 
         std::ios_base::sync_with_stdio(false);
