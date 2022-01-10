@@ -1,15 +1,18 @@
 #include <iostream>
-#include <algorithm>
+
+#include <cmath>
 #include <cstring>
+#include <algorithm>
+
+
+
+#include <set>
+#include <map>
+#include <list>
+#include <utility>
 #include <string>
 #include <vector>
-#include <set>
-#include <list>
-#include <cmath>
 #include <bitset>
-#include <ctime>
-
-
 
 
 
@@ -17,12 +20,18 @@ using std::min;
 using std::max;
 using std::sort;
 using std::to_string;
+using std::make_pair;
+
 using std::cin;
 using std::cout;
+
 using std::set;
+using std::map;
 using std::list;
+using std::pair;
 using std::string;
 using std::vector;
+using std::bitset;
 
 
 
@@ -61,24 +70,30 @@ typedef set<ulli>                   sulli;
 
 
 
+#define endl                        "\n"
+#define End                         << endl
 #define inp(n)                      int n; cin >> n
 #define Inp(n)                      lli n; cin >> n
-#define print(x)                    cout << x End
-#define f0(i,n)                     for(li i=0; i < (n); i++)
+
+#define f0(i,n)                     for(li i=0; i <  (n); i++)
 #define f1(i,n)                     for(li i=1; i <= (n); i++)
-#define rep0(i,a,b)                 for(li i=a; i < (b); i++)
+#define rep0(i,a,b)                 for(li i=a; i <  (b); i++)
 #define rep1(i,a,b)                 for(li i=a; i <= (b); i++)
-#define pb                          push_back
-#define lcm(a,b)                    ((a*b)/gcd(a,b))
+
+#define testIn                      cin >> test
+#define tests                       for(int testNo=1; testNo <= (test); testNo++)
+
 #define all(x)                      x.begin(), x.end()
 #define rall(x)                     x.rbegin(), x.rend()
 #define asrt(v)                     sort(all(v))
 #define dsrt(v)                     sort(rall(v))
 #define revStr(str)                 string(rall(str))
 #define sz(a)                       ((a).size())
-#define End                         << "\n"
-#define testIn                      cin >> test
-#define tests                       for(int testNo=1; testNo <= (test); testNo++)
+
+#define print(x)                    cout << x End
+#define pb                          push_back
+#define lcm(a,b)                    ((a*b)/gcd(a,b))
+
 #define yes                         cout << "yes" End
 #define no                          cout << "no" End
 #define Yes                         cout << "Yes" End
@@ -86,6 +101,7 @@ typedef set<ulli>                   sulli;
 #define YES                         cout << "YES" End
 #define NO                          cout << "NO" End
 #define finish                      return 0
+
 #define Inf                         (li)(1e9)
 #define INF                         (lli)(1e18)
 #define EPS                         (ld)(1e-9)
@@ -106,10 +122,20 @@ dataType gcd(dataType a, dataType b) {
     return a;
 }
 
+template<typename dataType>
+dataType abs(dataType k) {
+    if (k >= 0) return k; else return (-k);
+}
+
+template<typename dataType>
+bool equalCompare(dataType a, dataType b) {
+    return (abs((dataType)(a-b)) < 1e-9);
+}
 
 
 
 
+// Solver functions
 
 void solve1() {
 
@@ -128,15 +154,21 @@ void solve3() {
 
 
 int main() {
-    std::ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
 
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
-
+    #ifdef LOCAL
+        freopen("in.txt", "r", stdin);
+        freopen("output.txt", "w", stdout);
+    #else 
+        std::ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        cout.tie(NULL);
+    #endif
+    
     // Previous code
 
+
+
+    // Main code
     int test = 1;
 
     testIn;
