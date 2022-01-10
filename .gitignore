@@ -1,4 +1,4 @@
 .vscode/settings.json
-Template.exe
-Template$Reader.class
-Template.class
+*.exe
+*.class
+*.txt
