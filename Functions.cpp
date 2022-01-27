@@ -74,17 +74,22 @@ typedef set<ulli>                   sulli;
 #define End                         << endl
 #define inp(n)                      int n; cin >> n
 #define Inp(n)                      lli n; cin >> n
+#define inpstr(s)                   string s; cin >> s
+#define inp2(a,b)                   int a,b; cin >> a >> b
+#define Inp2(a,b)                   lli a,b; cin >> a >> b
+#define inparr(arr,n)               int arr[n]; f0(t_ind, n) cin >> arr[t_ind]
+#define Inparr(arr,n)               lli arr[n]; f0(t_ind, n) cin >> arr[t_ind]
 
-#define f0(i,n)                     for(li i=0; i <  (n); i++)
-#define f1(i,n)                     for(li i=1; i <= (n); i++)
-#define rep0(i,a,b)                 for(li i=a; i <  (b); i++)
-#define rep1(i,a,b)                 for(li i=a; i <= (b); i++)
+#define f0(i,n)                     for(li i = 0; i <  (n); i++)
+#define f1(i,n)                     for(li i = 1; i <= (n); i++)
+#define rep0(i,l,r)                 for(li i=(l); i <  (r); i++)
+#define rep1(i,l,r)                 for(li i=(l); i <= (r); i++)
 
 #define testIn                      cin >> test
 #define tests                       for(int testNo=1; testNo <= (test); testNo++)
 
-#define all(x)                      x.begin(), x.end()
-#define rall(x)                     x.rbegin(), x.rend()
+#define all(x)                      (x).begin(), (x).end()
+#define rall(x)                     (x).rbegin(), (x).rend()
 #define asrt(v)                     sort(all(v))
 #define dsrt(v)                     sort(rall(v))
 #define revStr(str)                 string(rall(str))
@@ -92,7 +97,7 @@ typedef set<ulli>                   sulli;
 
 #define print(x)                    cout << x End
 #define pb                          push_back
-#define lcm(a,b)                    ((a*b)/gcd(a,b))
+#define lcm(a,b)                    (((a)*(b))/gcd(a,b))
 
 #define yes                         cout << "yes" End
 #define no                          cout << "no" End
@@ -104,7 +109,8 @@ typedef set<ulli>                   sulli;
 
 #define Inf                         (li)(1e9)
 #define INF                         (lli)(1e18)
-#define EPS                         (ld)(1e-9)
+#define Eps                         (ld)(1e-9)
+#define EPS                         (ld)(1e-18)
 #define PI                          (ld)(3.141592653589793238462643383279502884197169)
 #define MOD                         (li)(1e9+7)
 #define MXN                         (int)(1e5+7)
@@ -234,22 +240,26 @@ bool equalCompare(dataType a, dataType b) {
 // Solver functions
 
 void solve1() {
-
+    
 }
 
 
 void solve2() {
-
+    
 }
 
 
 void solve3() {
-
+    
 }
 
 
 
 int main() {
+
+    #if __has_include("LOCAL.hh")
+        #include "LOCAL.hh"
+    #endif
 
     #ifdef LOCAL
         freopen("input.txt", "r", stdin);
@@ -259,7 +269,7 @@ int main() {
         cin.tie(NULL);
         cout.tie(NULL);
     #endif
-    
+
     // Previous code
 
 
