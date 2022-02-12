@@ -39,28 +39,24 @@ using std::bitset;
 
 typedef long double                 ld;
 typedef unsigned                    ui;
-typedef long                        li;
 typedef unsigned long               uli;
 typedef long long                   lli;
 typedef unsigned long long          ulli;
-typedef vector<int>                 vi;
+typedef vector<int32_t>             vi;
 typedef vector<ld>                  vld;
 typedef vector<ui>                  vui;
-typedef vector<li>                  vli;
 typedef vector<uli>                 vuli;
 typedef vector<lli>                 vlli;
 typedef vector<ulli>                vulli;
-typedef list<int>                   lsi;
+typedef list<int32_t>               lsi;
 typedef list<ld>                    lsld;
 typedef list<ui>                    lsui;
-typedef list<li>                    lsli;
 typedef list<uli>                   lsuli;
 typedef list<lli>                   lslli;
 typedef list<ulli>                  lsulli;
-typedef set<int>                    si;
+typedef set<int32_t>                si;
 typedef set<ld>                     sld;
 typedef set<ui>                     sui;
-typedef set<li>                     sli;
 typedef set<uli>                    suli;
 typedef set<lli>                    slli;
 typedef set<ulli>                   sulli;
@@ -79,13 +75,13 @@ typedef set<ulli>                   sulli;
 #define inparr(arr,n)               int arr[n]; f0(t_ind, n) cin >> arr[t_ind]
 #define Inparr(arr,n)               lli arr[n]; f0(t_ind, n) cin >> arr[t_ind]
 
-#define f0(i,n)                     for(li i = 0; i <  (n); i++)
-#define f1(i,n)                     for(li i = 1; i <= (n); i++)
-#define rep0(i,l,r)                 for(li i=(l); i <  (r); i++)
-#define rep1(i,l,r)                 for(li i=(l); i <= (r); i++)
+#define f0(i,n)                     for(int32_t i = 0; i <  (n); i++)
+#define f1(i,n)                     for(int32_t i = 1; i <= (n); i++)
+#define rep0(i,l,r)                 for(int32_t i=(l); i <  (r); i++)
+#define rep1(i,l,r)                 for(int32_t i=(l); i <= (r); i++)
 
 #define testIn                      cin >> test
-#define tests                       for(int testNo=1; testNo <= (test); testNo++)
+#define tests                       for(int32_t testNo=1; testNo <= (test); testNo++)
 
 #define all(x)                      (x).begin(), (x).end()
 #define rall(x)                     (x).rbegin(), (x).rend()
@@ -106,13 +102,13 @@ typedef set<ulli>                   sulli;
 #define NO                          cout << "NO" << endl
 #define finish                      return 0
 
-#define Inf                         (li)(1e9)
+#define Inf                         (int32_t)(1e9)
 #define INF                         (lli)(1e18)
 #define Eps                         (ld)(1e-9)
 #define EPS                         (ld)(1e-18)
 #define PI                          (ld)(3.141592653589793238462643383279502884197169)
-#define MOD                         (li)(1e9+7)
-#define MXN                         (int)(1e5+7)
+#define MOD                         (int32_t)(1e9+7)
+#define MXN                         (int32_t)(1e5+7)
 
 
 
@@ -213,11 +209,11 @@ dataType val(char c) {
 }
 template<typename dataType>
 dataType nthBaseToDecimal(string str, dataType base) {
-    int len = str.length();
-    int power = 1;
+    int32_t len = str.length();
+    int32_t power = 1;
     dataType num = 0;
  
-    for (int i = len - 1; i >= 0; i--) {
+    for (int32_t i = len - 1; i >= 0; i--) {
         num += (val<dataType>(str[i]) * power);
         power *= base;
     }
@@ -274,13 +270,13 @@ bool equalCompare(dataType a, dataType b) {
 
 // Solver functions
 
-void solve1(int testNo);
+void solve1(int32_t testNo);
 
 
-void solve2(int testNo);
+void solve2(int32_t testNo);
 
 
-void solve3(int testNo);
+void solve3(int32_t testNo);
 
 
 
@@ -304,7 +300,7 @@ int32_t main() {
 
 
     // Main code
-    int test = 1;
+    int32_t test = 1;
 
     testIn;
     
@@ -318,16 +314,16 @@ int32_t main() {
 }
 
 
-void solve1(int testNo) {
+void solve1(int32_t testNo) {
     
 }
 
 
-void solve2(int testNo) {
+void solve2(int32_t testNo) {
     
 }
 
 
-void solve3(int testNo) {
+void solve3(int32_t testNo) {
     
 }
