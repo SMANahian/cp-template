@@ -1,5 +1,7 @@
+import java.io.InputStreamReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.*;
 
@@ -15,21 +17,23 @@ public class Template {
 
         test = input.nextLong();
 
-        for (long testNo = 1; testNo <= test; testNo++) {
+        for (int testNo = 1; testNo <= test; testNo++) {
 
-
+            solve1(testNo);
 
         }
         input.close();
     }
 
-    public static void solve1 () {
-
-    }
-    public static void solve2 () {
+    public static void solve1 (int testNo) throws IOException {
         
     }
-    public static void solve3 () {
+
+    public static void solve2 (int testNo) throws IOException {
+        
+    }
+
+    public static void solve3 (int testNo) throws IOException {
         
     }
     
@@ -95,6 +99,10 @@ public class Template {
             res += reVal((int)(inputNum % base));
             inputNum /= base;
         }
+
+        if (res == "")
+            res = "0";
+
         StringBuilder ix = new StringBuilder();
         ix.append(res);
 
@@ -108,16 +116,21 @@ public class Template {
         private DataInputStream din;
         private byte[] buffer;
         private int bufferPointer, bytesRead;
+        BufferedReader br;
 
         public Reader() {
             din = new DataInputStream(System.in);
             buffer = new byte[BUFFER_SIZE];
             bufferPointer = bytesRead = 0;
+            br = new BufferedReader(
+                new InputStreamReader(System.in));
         }
         public Reader(String file_name) throws IOException {
             din = new DataInputStream(new FileInputStream(file_name));
             buffer = new byte[BUFFER_SIZE];
             bufferPointer = bytesRead = 0;
+            br = new BufferedReader(
+                new InputStreamReader(System.in));
         }
         public String readLine() throws IOException {
             byte[] buf = new byte[64]; // line length
@@ -133,6 +146,31 @@ public class Template {
                 buf[cnt++] = (byte) c;
             }
             return new String(buf, 0, cnt);
+        }
+        public String readLine(int size) throws IOException {
+            byte[] buf = new byte[size]; // line length
+            int cnt = 0, c;
+            while ((c = read()) != -1) {
+                if (c == '\n') {
+                    if (cnt != 0) {
+                        break;
+                    } else {
+                        continue;
+                    }
+                }
+                buf[cnt++] = (byte) c;
+            }
+            return new String(buf, 0, cnt);
+        }
+        public String nextLine() {
+            String str = "";
+            try {
+                str = br.readLine();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
         }
         public int nextInt() throws IOException {
             int ret = 0;

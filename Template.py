@@ -60,6 +60,9 @@ def nthBasefromDeci(inputNum, base):
     while (inputNum > 0):
         res += reVal(inputNum % base)
         inputNum = int(inputNum / base)
+    
+    if res == "":
+        res = "0"
 
     return res[::-1]
 
@@ -67,15 +70,15 @@ def nthBasefromDeci(inputNum, base):
 
 
 
-def solve1():
+def solve1(testNo):
 
     pass
 
-def solve2():
+def solve2(testNo):
 
     pass
 
-def solve3():
+def solve3(testNo):
 
     pass
 
@@ -91,6 +94,9 @@ def main():
     test = int(input())
 
     for testNo in range(1, test + 1):
+
+        solve1(testNo)
+
         pass
 
 

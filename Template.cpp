@@ -1,9 +1,9 @@
 #include <iostream>
+#include <iomanip>
 
 #include <cmath>
 #include <cstring>
 #include <algorithm>
-
 
 
 #include <set>
@@ -122,7 +122,7 @@ template<typename dataType>
 dataType gcd(dataType a, dataType b) {
     while (b != 0) {
         dataType c = b;
-        b = a % b;
+        b = (lli)a % (lli)b;
         a = c;
     }
     return a;
@@ -157,6 +157,12 @@ void allPrimeVector(dataType1 n, dataType2 &primeList) {
             primeList.pb(p);
 }
 
+template<typename dataType>
+string decimalTokbitsBinary(dataType n,dataType k) {
+    string s = bitset<64>(n).to_string();
+
+    return s.substr(64-k);
+}
 
 template<typename dataType>
 string decimalToBinary(dataType n) {
@@ -181,7 +187,7 @@ template<typename dataType>
 dataType nthBaseToDecimal(string str, dataType base) {
     int len = str.length();
     int power = 1;
-    dataType num = 0; 
+    dataType num = 0;
  
     for (int i = len - 1; i >= 0; i--) {
         num += (val<dataType>(str[i]) * power);
@@ -205,6 +211,8 @@ string nthBasefromDeci(dataType inputNum, dataType base) {
         res += reVal(inputNum % base);
         inputNum /= base;
     }
+    if (res == "")
+        res = "0";
     return revStr(res);
 }
 
@@ -238,13 +246,13 @@ bool equalCompare(dataType a, dataType b) {
 
 // Solver functions
 
-void solve1();
+void solve1(int testNo);
 
 
-void solve2();
+void solve2(int testNo);
 
 
-void solve3();
+void solve3(int testNo);
 
 
 
@@ -274,7 +282,7 @@ int main() {
     
     tests {
 
-        
+        solve1(testNo);
 
     }
 
@@ -282,16 +290,16 @@ int main() {
 }
 
 
-void solve1() {
+void solve1(int testNo) {
+    print(decimalTokbitsBinary(0,2));
+}
+
+
+void solve2(int testNo) {
     
 }
 
 
-void solve2() {
-    
-}
-
-
-void solve3() {
+void solve3(int testNo) {
     
 }
