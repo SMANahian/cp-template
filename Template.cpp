@@ -38,11 +38,11 @@ using std::bitset;
 
 
 typedef long double                 ld;
-typedef unsigned int                ui;
-typedef long int                    li;
-typedef unsigned long int           uli;
-typedef long long int               lli;
-typedef unsigned long long int      ulli;
+typedef unsigned                    ui;
+typedef long                        li;
+typedef unsigned long               uli;
+typedef long long                   lli;
+typedef unsigned long long          ulli;
 typedef vector<int>                 vi;
 typedef vector<ld>                  vld;
 typedef vector<ui>                  vui;
@@ -68,10 +68,9 @@ typedef set<ulli>                   sulli;
 
 
 
-
+#define int                         int64_t
 
 #define endl                        "\n"
-#define End                         << endl
 #define inp(n)                      int n; cin >> n
 #define Inp(n)                      lli n; cin >> n
 #define inpstr(s)                   string s; cin >> s
@@ -95,16 +94,16 @@ typedef set<ulli>                   sulli;
 #define revStr(str)                 string(rall(str))
 #define sz(a)                       ((a).size())
 
-#define print(x)                    cout << x End
+#define print(x)                    cout << x << endl
 #define pb                          push_back
 #define lcm(a,b)                    (((a)*(b))/gcd(a,b))
 
-#define yes                         cout << "yes" End
-#define no                          cout << "no" End
-#define Yes                         cout << "Yes" End
-#define No                          cout << "No" End
-#define YES                         cout << "YES" End
-#define NO                          cout << "NO" End
+#define yes                         cout << "yes" << endl
+#define no                          cout << "no" << endl
+#define Yes                         cout << "Yes" << endl
+#define No                          cout << "No" << endl
+#define YES                         cout << "YES" << endl
+#define NO                          cout << "NO" << endl
 #define finish                      return 0
 
 #define Inf                         (li)(1e9)
@@ -117,6 +116,35 @@ typedef set<ulli>                   sulli;
 
 
 
+
+template<typename dataType>
+dataType partitionProbDiff(dataType arr[], dataType n) {
+    dataType sum = 0;
+    for (dataType i = 0; i < n; i++) sum += arr[i];
+ 
+    bool dp[n + 1][sum + 1];
+    for (dataType i = 0; i <= n; i++) dp[i][0] = true;
+ 
+    for (dataType i = 1; i <= sum; i++) dp[0][i] = false;
+ 
+    for (dataType i = 1; i <= n; i++) {
+        for (dataType j = 1; j <= sum; j++) {
+            dp[i][j] = dp[i - 1][j];
+ 
+            if (arr[i - 1] <= j)
+                dp[i][j] |= dp[i - 1][j - arr[i - 1]];
+        }
+    }
+    dataType diff = INF;
+
+    for (dataType j = sum / 2; j >= 0; j--) {
+        if (dp[n][j] == true) {
+            diff = sum - 2 * j;
+            break;
+        }
+    }
+    return diff;
+}
 
 template<typename dataType>
 dataType gcd(dataType a, dataType b) {
@@ -256,7 +284,7 @@ void solve3(int testNo);
 
 
 
-int main() {
+int32_t main() {
 
     #if __has_include("LOCAL.hh")
         #include "LOCAL.hh"
@@ -291,7 +319,7 @@ int main() {
 
 
 void solve1(int testNo) {
-    print(decimalTokbitsBinary(0,2));
+    
 }
 
 
