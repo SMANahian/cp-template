@@ -9,6 +9,8 @@
 #include <set>
 #include <map>
 #include <list>
+#include <stack>
+#include <queue>
 #include <utility>
 #include <string>
 #include <vector>
@@ -29,6 +31,8 @@ using std::set;
 using std::map;
 using std::list;
 using std::pair;
+using std::stack;
+using std::queue;
 using std::string;
 using std::vector;
 using std::bitset;
@@ -39,25 +43,21 @@ using std::bitset;
 
 typedef long double                 ld;
 typedef unsigned                    ui;
-typedef unsigned long               uli;
 typedef long long                   lli;
 typedef unsigned long long          ulli;
 typedef vector<int32_t>             vi;
 typedef vector<ld>                  vld;
 typedef vector<ui>                  vui;
-typedef vector<uli>                 vuli;
 typedef vector<lli>                 vlli;
 typedef vector<ulli>                vulli;
 typedef list<int32_t>               lsi;
 typedef list<ld>                    lsld;
 typedef list<ui>                    lsui;
-typedef list<uli>                   lsuli;
 typedef list<lli>                   lslli;
 typedef list<ulli>                  lsulli;
 typedef set<int32_t>                si;
 typedef set<ld>                     sld;
 typedef set<ui>                     sui;
-typedef set<uli>                    suli;
 typedef set<lli>                    slli;
 typedef set<ulli>                   sulli;
 
@@ -90,8 +90,8 @@ typedef set<ulli>                   sulli;
 #define revStr(str)                 string(rall(str))
 #define sz(a)                       ((a).size())
 
-#define print(x)                    cout << x << endl
 #define pb                          push_back
+#define pf                          push_front
 #define lcm(a,b)                    (((a)*(b))/gcd(a,b))
 
 #define yes                         cout << "yes" << endl
@@ -106,40 +106,51 @@ typedef set<ulli>                   sulli;
 #define INF                         (lli)(1e18)
 #define Eps                         (ld)(1e-9)
 #define EPS                         (ld)(1e-18)
-#define PI                          (ld)(3.141592653589793238462643383279502884197169)
+#define PI                          (ld)(3.141592653589793238462643383279502884197169L)
 #define MOD                         (int32_t)(1e9+7)
 #define MXN                         (int32_t)(1e5+7)
 
 
 
 
+template<typename dataType1>
+inline void print(dataType1 a) {cout << a << endl;}
+template<typename dataType1, typename dataType2>
+inline void print(dataType1 a, dataType2 b) {cout << a << " " << b << endl;}
+template<typename dataType1, typename dataType2, typename dataType3>
+inline void print(dataType1 a, dataType2 b, dataType3 c) {cout << a << " " << b << " " << c << endl;}
+template<typename dataType1, typename dataType2, typename dataType3, typename dataType4>
+inline void print(dataType1 a, dataType2 b, dataType3 c, dataType4 d) {cout << a << " " << b << " " << c << " " << d << endl;}
 template<typename dataType>
-dataType partitionProbDiff(dataType arr[], dataType n) {
+inline void printarr(dataType* arr, int32_t n) {f0(i,n) cout << arr[i] << " "; cout << endl;}
+template<typename dataType>
+inline dataType abs(dataType k) {if (k >= 0) return k; else return (-k);}
+template<typename dataType>
+inline bool equalCompare(dataType a, dataType b) {return (abs((dataType)(a-b)) < 1e-9);}
+
+
+template<typename dataType>
+dataType partitionProbDiff(dataType* arr, dataType n) {
     dataType sum = 0;
-    for (dataType i = 0; i < n; i++) sum += arr[i];
- 
+    for (int32_t i = 0; i < n; i++) sum += arr[i];
+
     bool dp[n + 1][sum + 1];
-    for (dataType i = 0; i <= n; i++) dp[i][0] = true;
- 
-    for (dataType i = 1; i <= sum; i++) dp[0][i] = false;
- 
-    for (dataType i = 1; i <= n; i++) {
-        for (dataType j = 1; j <= sum; j++) {
+    for (int32_t i = 0; i <= n; i++) dp[i][0] = true;
+    for (int32_t i = 1; i <= sum; i++) dp[0][i] = false;
+
+    for (int32_t i = 1; i <= n; i++) {
+        for (int32_t j = 1; j <= sum; j++) {
             dp[i][j] = dp[i - 1][j];
  
             if (arr[i - 1] <= j)
                 dp[i][j] |= dp[i - 1][j - arr[i - 1]];
         }
     }
-    dataType diff = INF;
-
-    for (dataType j = sum / 2; j >= 0; j--) {
+    for (int32_t j = sum / 2; j >= 0; j--) {
         if (dp[n][j] == true) {
-            diff = sum - 2 * j;
-            break;
+            return (sum - 2 * j);
         }
     }
-    return diff;
 }
 
 template<typename dataType>
@@ -157,7 +168,7 @@ template<typename dataType>
 void allPrimeBoolArray(dataType n, bool* prime) {
     memset(prime, true, sizeof(prime));
 
-    for (dataType p = 2; p * p <= n; p++) {
+    for (int32_t p = 2; p * p <= n; p++) {
         if (prime[p]) {
             for (dataType i = p * p; i <= n; i += p)
                 prime[i] = false;
@@ -169,14 +180,14 @@ void allPrimeVector(dataType1 n, dataType2 &primeList) {
     bool prime[n+1];
     memset(prime, true, sizeof(prime));
 
-    for (dataType1 p = 2; p * p <= n; p++) {
+    for (int32_t p = 2; p * p <= n; p++) {
         if (prime[p]) {
             for (dataType1 i = p * p; i <= n; i += p)
                 prime[i] = false;
         }
     }
 
-    for (dataType1 p = 2; p <= n; p++)
+    for (int32_t p = 2; p <= n; p++)
         if (prime[p])
             primeList.pb(p);
 }
@@ -256,34 +267,57 @@ dataType1 smallFactor(dataType1 n, dataType2 &primes) {
 }
 
 template<typename dataType>
-dataType abs(dataType k) {
-    if (k >= 0) return k; else return (-k);
+dataType phi(dataType n) {
+    dataType result = n;
+    for(int32_t p = 2; p * p <= n; ++p) {
+        if (n % p == 0) {
+            while (n % p == 0) n /= p;
+            result -= result / p;
+        }
+    }
+    if (n > 1) result -= result / n;
+    return result;
 }
-
-template<typename dataType>
-bool equalCompare(dataType a, dataType b) {
-    return (abs((dataType)(a-b)) < 1e-9);
+template<typename dataType1, typename dataType2, typename dataType3>
+int64_t powMod(dataType1 base, dataType2 n, dataType3 mod) {
+    if (n == 0) return 1;
+    if (n % 2 == 0) {
+        int64_t t_pow = (int64_t)powMod(base, n/2, mod);
+        return ((t_pow*t_pow) % mod);
+    }
+    int64_t t_pow = (int64_t)powMod(base, (n-1)/2, mod);
+    return ((int64_t)base * ((t_pow*t_pow) % mod) % mod);
 }
-
+template<typename dataType1, typename dataType2>
+int64_t modInverse(dataType1 n, dataType2 mod, bool isPrime) {
+    if(isPrime) return powMod(n, mod-2, mod);
+    return powMod(n, phi(mod)-1, mod);
+}
+template<typename dataType1, typename dataType2, typename dataType3>
+int64_t modDivide(dataType1 a, dataType2 b, dataType3 mod, bool isPrime) {
+    return (((int64_t)a * modInverse(b, mod, isPrime)) % mod);
+}
 
 
 
 // Solver functions
 
-void solve1(int32_t testNo);
+int32_t solve1(int32_t testNo);
 
 
-void solve2(int32_t testNo);
+int32_t solve2(int32_t testNo);
 
 
-void solve3(int32_t testNo);
+int32_t solve3(int32_t testNo);
 
 
 
 int32_t main() {
 
-    #if __has_include("LOCAL.hh")
-        #include "LOCAL.hh"
+    #if defined __has_include
+        #if __has_include("LOCAL.hh")
+            #include "LOCAL.hh"
+        #endif
     #endif
 
     #ifdef LOCAL
@@ -314,16 +348,21 @@ int32_t main() {
 }
 
 
-void solve1(int32_t testNo) {
+int32_t solve1(int32_t testNo) {
     
+    finish;
 }
 
 
-void solve2(int32_t testNo) {
+
+int32_t solve2(int32_t testNo) {
     
+    finish;
 }
 
 
-void solve3(int32_t testNo) {
+
+int32_t solve3(int32_t testNo) {
     
+    finish;
 }
