@@ -36,6 +36,8 @@ using std::queue;
 using std::string;
 using std::vector;
 using std::bitset;
+using std::greater;
+using std::priority_queue;
 
 
 
@@ -151,6 +153,32 @@ dataType partitionProbDiff(dataType* arr, dataType n) {
             return (sum - 2 * j);
         }
     }
+}
+template<typename dataType>
+bool subsetSumProblem(dataType set[], dataType n, dataType sum) {
+    bool subset[n + 1][sum + 1];
+    for (int32_t i = 0; i <= n; i++)
+        subset[i][0] = true;
+    for (int32_t i = 1; i <= sum; i++)
+        subset[0][i] = false;
+    for (int32_t i = 1; i <= n; i++) {
+        for (int32_t j = 1; j <= sum; j++) {
+            if (j < set[i - 1])
+                subset[i][j] = subset[i - 1][j];
+            if (j >= set[i - 1])
+                subset[i][j] = subset[i - 1][j] || subset[i - 1][j - set[i - 1]];
+        }
+    }
+    return subset[n][sum];
+}
+bool isPrefix(string &s, string &y) {
+    if(s.length() > y.length()) return false;
+    f0(i, s.length()) if(s[i] != y[i]) return false;
+    return true;
+}
+bool ispalindrom(string s) {
+    f0(i, s.length()/2) if(s[i] != s[s.length()-i-1]) return false;
+    return true;
 }
 
 template<typename dataType>
