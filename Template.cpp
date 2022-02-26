@@ -91,10 +91,16 @@ typedef set<ulli>                   sulli;
 #define dsrt(v)                     sort(rall(v))
 #define revStr(str)                 string(rall(str))
 #define sz(a)                       ((a).size())
+#define front_zero(n)               __builtin_clzll(n)
+#define back_zero(n)                __builtin_ctzll(n)
+#define total_one(n)                __builtin_popcountll(n)
+#define lcm(a, b)                   (((a)*(b))/gcd(a,b))
+#define mem(a, b)                   memset(a, b, sizeof(a))
 
 #define pb                          push_back
 #define pf                          push_front
-#define lcm(a,b)                    (((a)*(b))/gcd(a,b))
+#define ff                          first
+#define ss                          second
 
 #define yes                         cout << "yes" << endl
 #define no                          cout << "no" << endl
@@ -103,6 +109,7 @@ typedef set<ulli>                   sulli;
 #define YES                         cout << "YES" << endl
 #define NO                          cout << "NO" << endl
 #define finish                      return 0
+#define clean                       fflush(stdout)
 
 #define Inf                         (int32_t)(1e9)
 #define INF                         (lli)(1e18)
