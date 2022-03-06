@@ -337,13 +337,13 @@ int64_t modDivide(dataType1 a, dataType2 b, dataType3 mod, bool isPrime) {
 
 // Solver functions
 
-int32_t solve1(int32_t testNo);
+int32_t solve1(int32_t);
 
 
-int32_t solve2(int32_t testNo);
+int32_t solve2(int32_t);
 
 
-int32_t solve3(int32_t testNo);
+int32_t solve3(int32_t);
 
 
 
@@ -384,6 +384,7 @@ int32_t main() {
 
 
 int32_t solve1(int32_t testNo) {
+    // cout << "Case " << testNo << ": ";
     
     finish;
 }
@@ -391,6 +392,7 @@ int32_t solve1(int32_t testNo) {
 
 
 int32_t solve2(int32_t testNo) {
+    // cout << "Case " << testNo << ": ";
     
     finish;
 }
@@ -398,6 +400,7 @@ int32_t solve2(int32_t testNo) {
 
 
 int32_t solve3(int32_t testNo) {
+    // cout << "Case " << testNo << ": ";
     
     finish;
 }

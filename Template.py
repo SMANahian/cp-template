@@ -1,6 +1,6 @@
+import sys
 import math
-
-
+from collections import Counter
 
 
 
@@ -66,19 +66,45 @@ def nthBasefromDeci(inputNum, base):
 
     return res[::-1]
 
+def phi(n):
+    res = n
+    p = 2
+    while (p * p <= n):
+        if n % p == 0:
+            while (n % p == 0): n /= p
+            res -= res // p
+        p += 1
+    if n > 1: res -= res // n
+    return res
 
+def powMod(base, n, mod):
+    if n == 0: return 1
+    if n % 2 == 0:
+        return (powMod(base, n/2, mod) ** 2) % mod
+    else:
+        return (base * ((powMod(base, (n-1)/2, mod) ** 2) % mod)) % mod
+
+def modInverse(n, mod, isPrime):
+    if isPrime: return powMod(n, mod-2, mod)
+    return powMod(n, phi(mod) - 1, mod)
+
+def modDivide(a, b, mod, isprime):
+    return (a * modInverse(b, mod, isprime)) % mod
 
 
 
 def solve1(testNo):
+    # print(f"Case #{testNo}: ", end="")
 
     pass
 
 def solve2(testNo):
+    # print(f"Case #{testNo}: ", end="")
 
     pass
 
 def solve3(testNo):
+    # print(f"Case #{testNo}: ", end="")
 
     pass
 
