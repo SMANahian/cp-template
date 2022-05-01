@@ -384,23 +384,23 @@ int32_t main() {
 
 
 int32_t solve1(int32_t testNo) {
-    // cout << "Case " << testNo << ": ";
-    
+    // cout << "Case #" << testNo << ": ";
+
     finish;
 }
 
 
 
 int32_t solve2(int32_t testNo) {
-    // cout << "Case " << testNo << ": ";
-    
+    // cout << "Case #" << testNo << ": ";
+
     finish;
 }
 
 
 
 int32_t solve3(int32_t testNo) {
-    // cout << "Case " << testNo << ": ";
-    
+    // cout << "Case #" << testNo << ": ";
+
     finish;
 }
