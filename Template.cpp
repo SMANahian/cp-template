@@ -21,8 +21,10 @@
 using std::min;
 using std::max;
 using std::sort;
+using std::fixed;
 using std::to_string;
 using std::make_pair;
+using std::setprecision;
 
 using std::cin;
 using std::cout;
@@ -385,6 +387,7 @@ int32_t main() {
 
 int32_t solve1(int32_t testNo) {
     // cout << "Case #" << testNo << ": ";
+    // cout << endl;
 
     finish;
 }
@@ -393,6 +396,7 @@ int32_t solve1(int32_t testNo) {
 
 int32_t solve2(int32_t testNo) {
     // cout << "Case #" << testNo << ": ";
+    // cout << endl;
 
     finish;
 }
@@ -401,6 +405,7 @@ int32_t solve2(int32_t testNo) {
 
 int32_t solve3(int32_t testNo) {
     // cout << "Case #" << testNo << ": ";
+    // cout << endl;
 
     finish;
 }
