@@ -24,6 +24,8 @@ using std::sort;
 using std::fixed;
 using std::to_string;
 using std::make_pair;
+using std::upper_bound;
+using std::lower_bound;
 using std::setprecision;
 
 using std::cin;
@@ -33,6 +35,7 @@ using std::set;
 using std::map;
 using std::list;
 using std::pair;
+using std::less;
 using std::stack;
 using std::queue;
 using std::string;
@@ -335,6 +338,12 @@ int64_t modDivide(dataType1 a, dataType2 b, dataType3 mod, bool isPrime) {
     return (((int64_t)a * modInverse(b, mod, isPrime)) % mod);
 }
 
+//define a compare function for pair
+template<typename dataType1, typename dataType2, typename dataType3, typename dataType4>
+bool compare(pair<dataType1, dataType2> &a, pair<dataType3, dataType4> &b) {
+    return a.first < b.first;
+}
+
 
 
 // Solver functions
@@ -373,7 +382,7 @@ int32_t main() {
     // Main code
     int32_t test = 1;
 
-    testIn;
+    // testIn;
     
     tests {
 
@@ -388,7 +397,7 @@ int32_t main() {
 int32_t solve1(int32_t testNo) {
     // cout << "Case #" << testNo << ": ";
     // cout << endl;
-
+    
     finish;
 }
 
@@ -397,7 +406,7 @@ int32_t solve1(int32_t testNo) {
 int32_t solve2(int32_t testNo) {
     // cout << "Case #" << testNo << ": ";
     // cout << endl;
-
+    
     finish;
 }
 
@@ -406,6 +415,6 @@ int32_t solve2(int32_t testNo) {
 int32_t solve3(int32_t testNo) {
     // cout << "Case #" << testNo << ": ";
     // cout << endl;
-
+    
     finish;
 }
