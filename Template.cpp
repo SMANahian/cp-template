@@ -48,81 +48,84 @@ using std::priority_queue;
 
 
 
-typedef long double                 ld;
-typedef unsigned                    ui;
-typedef long long                   lli;
-typedef unsigned long long          ulli;
-typedef vector<int32_t>             vi;
-typedef vector<ld>                  vld;
-typedef vector<ui>                  vui;
-typedef vector<lli>                 vlli;
-typedef vector<ulli>                vulli;
-typedef list<int32_t>               lsi;
-typedef list<ld>                    lsld;
-typedef list<ui>                    lsui;
-typedef list<lli>                   lslli;
-typedef list<ulli>                  lsulli;
-typedef set<int32_t>                si;
-typedef set<ld>                     sld;
-typedef set<ui>                     sui;
-typedef set<lli>                    slli;
-typedef set<ulli>                   sulli;
+typedef long double                         ld;
+typedef unsigned                            ui;
+typedef long long                           lli;
+typedef unsigned long long                  ulli;
+typedef vector<int32_t>                     vi;
+typedef vector<ld>                          vld;
+typedef vector<ui>                          vui;
+typedef vector<lli>                         vlli;
+typedef vector<ulli>                        vulli;
+typedef list<int32_t>                       lsi;
+typedef list<ld>                            lsld;
+typedef list<ui>                            lsui;
+typedef list<lli>                           lslli;
+typedef list<ulli>                          lsulli;
+typedef set<int32_t>                        si;
+typedef set<ld>                             sld;
+typedef set<ui>                             sui;
+typedef set<lli>                            slli;
+typedef set<ulli>                           sulli;
+
+typedef pair<int32_t, int32_t>              pii;
+typedef pair<lli, lli>                      pll;
 
 
 
+#define int                                 int64_t
 
-#define int                         int64_t
+#define endl                                "\n"
+#define inp(n)                              int n; cin >> n
+#define Inp(n)                              lli n; cin >> n
+#define inpstr(s)                           string s; cin >> s
+#define inp2(a,b)                           int a,b; cin >> a >> b
+#define Inp2(a,b)                           lli a,b; cin >> a >> b
+#define inparr(arr,n)                       int arr[n]; f0(t_ind, n) cin >> arr[t_ind]
+#define Inparr(arr,n)                       lli arr[n]; f0(t_ind, n) cin >> arr[t_ind]
 
-#define endl                        "\n"
-#define inp(n)                      int n; cin >> n
-#define Inp(n)                      lli n; cin >> n
-#define inpstr(s)                   string s; cin >> s
-#define inp2(a,b)                   int a,b; cin >> a >> b
-#define Inp2(a,b)                   lli a,b; cin >> a >> b
-#define inparr(arr,n)               int arr[n]; f0(t_ind, n) cin >> arr[t_ind]
-#define Inparr(arr,n)               lli arr[n]; f0(t_ind, n) cin >> arr[t_ind]
+#define f0(i,n)                             for(int32_t i = 0; i <  (n); i++)
+#define f1(i,n)                             for(int32_t i = 1; i <= (n); i++)
+#define rep0(i,l,r)                         for(int32_t i=(l); i <  (r); i++)
+#define rep1(i,l,r)                         for(int32_t i=(l); i <= (r); i++)
 
-#define f0(i,n)                     for(int32_t i = 0; i <  (n); i++)
-#define f1(i,n)                     for(int32_t i = 1; i <= (n); i++)
-#define rep0(i,l,r)                 for(int32_t i=(l); i <  (r); i++)
-#define rep1(i,l,r)                 for(int32_t i=(l); i <= (r); i++)
+#define testIn                              cin >> test
+#define tests                               for(int32_t testNo=1; testNo <= (test); testNo++)
 
-#define testIn                      cin >> test
-#define tests                       for(int32_t testNo=1; testNo <= (test); testNo++)
+#define all(x)                              (x).begin(), (x).end()
+#define rall(x)                             (x).rbegin(), (x).rend()
+#define asrt(v)                             sort(all(v))
+#define dsrt(v)                             sort(rall(v))
+#define revStr(str)                         string(rall(str))
+#define sz(a)                               ((int64_t)(a).size())
+#define front_zero(n)                       __builtin_clzll(n)
+#define back_zero(n)                        __builtin_ctzll(n)
+#define total_one(n)                        __builtin_popcountll(n)
+#define lcm(a, b)                           (((a)*(b))/gcd(a,b))
+#define mem(a, b)                           memset(a, b, sizeof(a))
 
-#define all(x)                      (x).begin(), (x).end()
-#define rall(x)                     (x).rbegin(), (x).rend()
-#define asrt(v)                     sort(all(v))
-#define dsrt(v)                     sort(rall(v))
-#define revStr(str)                 string(rall(str))
-#define sz(a)                       ((a).size())
-#define front_zero(n)               __builtin_clzll(n)
-#define back_zero(n)                __builtin_ctzll(n)
-#define total_one(n)                __builtin_popcountll(n)
-#define lcm(a, b)                   (((a)*(b))/gcd(a,b))
-#define mem(a, b)                   memset(a, b, sizeof(a))
+#define pb                                  push_back
+#define pf                                  push_front
+#define mp                                  make_pair
+#define ff                                  first
+#define ss                                  second
 
-#define pb                          push_back
-#define pf                          push_front
-#define ff                          first
-#define ss                          second
+#define yes                                 cout << "yes" << endl
+#define no                                  cout << "no" << endl
+#define Yes                                 cout << "Yes" << endl
+#define No                                  cout << "No" << endl
+#define YES                                 cout << "YES" << endl
+#define NO                                  cout << "NO" << endl
+#define finish                              return 0
+#define clean                               fflush(stdout)
 
-#define yes                         cout << "yes" << endl
-#define no                          cout << "no" << endl
-#define Yes                         cout << "Yes" << endl
-#define No                          cout << "No" << endl
-#define YES                         cout << "YES" << endl
-#define NO                          cout << "NO" << endl
-#define finish                      return 0
-#define clean                       fflush(stdout)
-
-#define Inf                         (int32_t)(1e9)
-#define INF                         (lli)(1e18)
-#define Eps                         (ld)(1e-9)
-#define EPS                         (ld)(1e-18)
-#define PI                          (ld)(3.141592653589793238462643383279502884197169L)
-#define MOD                         (int32_t)(1e9+7)
-#define MXN                         (int32_t)(1e5+7)
+#define Inf                                 (int32_t)(1e9)
+#define INF                                 (lli)(1e18)
+#define Eps                                 (ld)(1e-9)
+#define EPS                                 (ld)(1e-18)
+#define PI                                  (ld)(3.141592653589793238462643383279502884197169L)
+#define MOD                                 (int32_t)(1e9+7)
+#define MXN                                 (int32_t)(1e5+7)
 
 
 
