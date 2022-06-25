@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <chrono>
 
 #include <cmath>
 #include <cstring>
@@ -11,6 +12,7 @@
 #include <list>
 #include <stack>
 #include <queue>
+#include <deque>
 #include <utility>
 #include <string>
 #include <vector>
@@ -38,6 +40,7 @@ using std::pair;
 using std::less;
 using std::stack;
 using std::queue;
+using std::deque;
 using std::string;
 using std::vector;
 using std::bitset;
@@ -97,7 +100,7 @@ typedef pair<lli, lli>                      pll;
 #define asrt(v)                             sort(all(v))
 #define dsrt(v)                             sort(rall(v))
 #define revStr(str)                         string(rall(str))
-#define sz(a)                               ((int64_t)(a).size())
+#define len(a)                              ((int64_t)(a).size())
 #define front_zero(n)                       __builtin_clzll(n)
 #define back_zero(n)                        __builtin_ctzll(n)
 #define total_one(n)                        __builtin_popcountll(n)
@@ -361,6 +364,48 @@ int32_t solve3(int32_t);
 
 
 
+template<typename dataType>
+dataType binary_operator(dataType a, dataType b) {
+    return a + b;
+}
+
+
+template<typename dataType>
+struct segtree {
+    int32_t size;
+    vector<dataType> tree;
+    
+    segtree(int32_t n, vector<dataType> &arr) {
+        dataType base = 1;
+        while (base < n) base *= 2;
+        size = base;
+        tree.resize(size*2, 0);
+
+        for (int32_t i = 0; i < n; i++) {
+            tree[base+i] = arr[i];
+        }
+        for (int32_t i = base-1; i > 0; i--) {
+            tree[i] = binary_operator(tree[i*2], tree[i*2+1]);
+        }
+    }
+
+    dataType query(int32_t l, int32_t r) {
+        dataType base = 1;
+        while (base < size) base *= 2;
+        l += base;
+        r += base;
+        dataType res = 0;
+        while (l <= r) {
+            if (l % 2 == 1) res = binary_operator(res, tree[l]);
+            if (r % 2 == 0) res = binary_operator(res, tree[r]);
+            l = (l+1) / 2;
+            r = (r-1) / 2;
+        }
+        return res;
+    }
+};
+
+
 int32_t main() {
 
     #if defined __has_include
@@ -372,6 +417,9 @@ int32_t main() {
     #ifdef LOCAL
         freopen("input.txt", "r", stdin);
         freopen("output.txt", "w", stdout);
+        using namespace std::chrono;
+        cout << fixed << setprecision(6);
+        auto begin = steady_clock::now();
     #else 
         std::ios_base::sync_with_stdio(false);
         cin.tie(NULL);
@@ -386,13 +434,16 @@ int32_t main() {
     int32_t test = 1;
 
     // testIn;
-    
+
     tests {
 
         solve1(testNo);
 
     }
-
+    #ifdef LOCAL
+        auto end = steady_clock::now();
+        cout << "\nTime : " << (ld)duration_cast<nanoseconds>(end - begin).count()/1000000 << "s" << endl;
+    #endif
     finish;
 }
 
