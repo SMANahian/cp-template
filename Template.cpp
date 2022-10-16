@@ -23,6 +23,7 @@
 using std::min;
 using std::max;
 using std::sort;
+using std::swap;
 using std::fixed;
 using std::to_string;
 using std::make_pair;
@@ -38,6 +39,7 @@ using std::map;
 using std::list;
 using std::pair;
 using std::less;
+using std::tuple;
 using std::stack;
 using std::queue;
 using std::deque;
@@ -146,7 +148,7 @@ inline void printarr(dataType* arr, int32_t n) {f0(i,n) cout << arr[i] << " "; c
 template<typename dataType>
 inline dataType abs(dataType k) {if (k >= 0) return k; else return (-k);}
 template<typename dataType>
-inline bool equalCompare(dataType a, dataType b) {return (abs((dataType)(a-b)) < 1e-9);}
+inline bool isEqual(dataType a, dataType b) {return (abs((dataType)(a-b)) < 1e-9);}
 
 
 template<typename dataType>
@@ -335,12 +337,12 @@ int64_t powMod(dataType1 base, dataType2 n, dataType3 mod) {
     return ((int64_t)base * ((t_pow*t_pow) % mod) % mod);
 }
 template<typename dataType1, typename dataType2>
-int64_t modInverse(dataType1 n, dataType2 mod, bool isPrime) {
+int64_t modInverse(dataType1 n, dataType2 mod, bool isPrime = true) {
     if(isPrime) return powMod(n, mod-2, mod);
     return powMod(n, phi(mod)-1, mod);
 }
 template<typename dataType1, typename dataType2, typename dataType3>
-int64_t modDivide(dataType1 a, dataType2 b, dataType3 mod, bool isPrime) {
+int64_t modDivide(dataType1 a, dataType2 b, dataType3 mod, bool isPrime = true) {
     return (((int64_t)a * modInverse(b, mod, isPrime)) % mod);
 }
 
@@ -365,39 +367,54 @@ int32_t solve3(int32_t);
 
 
 template<typename dataType>
-dataType binary_operator(dataType a, dataType b) {
+dataType segtree_operator(dataType a, dataType b) {
     return a + b;
 }
 
 
 template<typename dataType>
 struct segtree {
-    int32_t size;
+    int size;
     vector<dataType> tree;
+    int init_val;
     
-    segtree(int32_t n, vector<dataType> &arr) {
-        dataType base = 1;
-        while (base < n) base *= 2;
-        size = base;
-        tree.resize(size*2, 0);
-
+    template<typename dataType1>
+    segtree(int n, dataType1 &arr, int init = 0) {
+        init_segtree(n, init);
         for (int32_t i = 0; i < n; i++) {
-            tree[base+i] = arr[i];
+            tree[size+i] = arr[i];
         }
-        for (int32_t i = base-1; i > 0; i--) {
-            tree[i] = binary_operator(tree[i*2], tree[i*2+1]);
+        for (int32_t i = size-1; i > 0; i--) {
+            tree[i] = segtree_operator(tree[i*2], tree[i*2+1]);
         }
     }
 
-    dataType query(int32_t l, int32_t r) {
+    segtree(int n, dataType* arr, int init = 0) {
+        init_segtree(n, init);
+        for (int32_t i = 0; i < n; i++) {
+            tree[size+i] = arr[i];
+        }
+        for (int32_t i = size-1; i > 0; i--) {
+            tree[i] = segtree_operator(tree[i*2], tree[i*2+1]);
+        }
+    }
+
+    void init_segtree(int n, int init) {
+        size = 1;
+        init_val = init;
+        while (size < n) size *= 2;
+        tree.resize(size*2, init_val);
+    }
+
+    dataType query(int l, int r) {
         dataType base = 1;
         while (base < size) base *= 2;
         l += base;
         r += base;
-        dataType res = 0;
+        dataType res = init_val;
         while (l <= r) {
-            if (l % 2 == 1) res = binary_operator(res, tree[l]);
-            if (r % 2 == 0) res = binary_operator(res, tree[r]);
+            if (l % 2 == 1) res = segtree_operator(res, tree[l]);
+            if (r % 2 == 0) res = segtree_operator(res, tree[r]);
             l = (l+1) / 2;
             r = (r-1) / 2;
         }
@@ -418,9 +435,9 @@ int32_t main() {
         freopen("input.txt", "r", stdin);
         freopen("output.txt", "w", stdout);
         using namespace std::chrono;
-        cout << fixed << setprecision(6);
+        cout << fixed << setprecision(9);
         auto begin = steady_clock::now();
-    #else 
+    #else
         std::ios_base::sync_with_stdio(false);
         cin.tie(NULL);
         cout.tie(NULL);
@@ -433,7 +450,7 @@ int32_t main() {
     // Main code
     int32_t test = 1;
 
-    // testIn;
+    testIn;
 
     tests {
 
@@ -442,7 +459,10 @@ int32_t main() {
     }
     #ifdef LOCAL
         auto end = steady_clock::now();
-        cout << "\nTime : " << (ld)duration_cast<nanoseconds>(end - begin).count()/1000000 << "s" << endl;
+        cout << "\nTime : " 
+             << (ld)duration_cast<nanoseconds>
+                (end - begin).count()/1000000000 
+             << "s" << endl;
     #endif
     finish;
 }
