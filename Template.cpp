@@ -376,10 +376,10 @@ template<typename dataType>
 struct segtree {
     int size;
     vector<dataType> tree;
-    int init_val;
+    dataType init_val;
     
     template<typename dataType1>
-    segtree(int n, dataType1 &arr, int init = 0) {
+    segtree(int n, dataType1 &arr, dataType init) {
         init_segtree(n, init);
         for (int32_t i = 0; i < n; i++) {
             tree[size+i] = arr[i];
@@ -389,7 +389,7 @@ struct segtree {
         }
     }
 
-    segtree(int n, dataType* arr, int init = 0) {
+    segtree(int n, dataType* arr, dataType init) {
         init_segtree(n, init);
         for (int32_t i = 0; i < n; i++) {
             tree[size+i] = arr[i];
@@ -399,7 +399,7 @@ struct segtree {
         }
     }
 
-    void init_segtree(int n, int init) {
+    void init_segtree(int n, dataType init) {
         size = 1;
         init_val = init;
         while (size < n) size *= 2;
@@ -407,7 +407,7 @@ struct segtree {
     }
 
     dataType query(int l, int r) {
-        dataType base = 1;
+        int base = 1;
         while (base < size) base *= 2;
         l += base;
         r += base;
