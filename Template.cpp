@@ -406,6 +406,15 @@ struct segtree {
         tree.resize(size*2, init_val);
     }
 
+    void update(int ind, dataType val) {
+        ind += size;
+        tree[ind] = val;
+        while (ind > 1) {
+            ind /= 2;
+            tree[ind] = segtree_operator(tree[ind*2], tree[ind*2+1]);
+        }
+    }
+
     dataType query(int l, int r) {
         int base = 1;
         while (base < size) base *= 2;
