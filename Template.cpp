@@ -416,10 +416,8 @@ struct segtree {
     }
 
     dataType query(int l, int r) {
-        int base = 1;
-        while (base < size) base *= 2;
-        l += base;
-        r += base;
+        l += size;
+        r += size;
         dataType res = init_val;
         while (l <= r) {
             if (l % 2 == 1) res = segtree_operator(res, tree[l]);
