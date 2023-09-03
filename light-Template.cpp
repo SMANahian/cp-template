@@ -130,7 +130,7 @@ string nthBasefromDeci(dataType inputNum, dataType base) {
     }
     if (res == "")
         res = "0";
-    return revStr(res);
+    return string(rall(res));
 }
 
 template<typename dataType>
