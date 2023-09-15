@@ -115,6 +115,8 @@ typedef pair<lli, lli>                      pll;
 #define mp                                  make_pair
 #define ff                                  first
 #define ss                                  second
+#define maxi                                maximize
+#define mini                                minimize   
 
 #define yes                                 cout << "yes" << endl
 #define no                                  cout << "no" << endl
@@ -150,7 +152,10 @@ template<typename dataType>
 inline dataType abs(dataType k) {if (k >= 0) return k; else return (-k);}
 template<typename dataType>
 inline bool isEqual(dataType a, dataType b) {return (abs((dataType)(a-b)) < 1e-9);}
-
+template<typename dataType>
+inline void maximize(dataType &a, dataType b) {if (a < b) a = b;}
+template<typename dataType>
+inline void minimize(dataType &a, dataType b) {if (a > b) a = b;}
 
 template<typename dataType>
 dataType partitionProbDiff(dataType* arr, dataType n) {
@@ -430,6 +435,7 @@ struct segtree {
     }
 };
 
+vi primes;
 
 int32_t main() {
 
