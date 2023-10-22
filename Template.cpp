@@ -74,7 +74,7 @@ typedef set<ui>                             sui;
 typedef set<lli>                            slli;
 typedef set<ulli>                           sulli;
 
-typedef pair<int32_t, int32_t>              pii;
+typedef pair<lli, lli>                      pii;
 typedef pair<lli, lli>                      pll;
 
 
@@ -483,7 +483,7 @@ int32_t main() {
 
 
 int32_t solve1(int32_t testNo) {
-    // cout << "Case #" << testNo << ": ";
+    // cout << "Case " << testNo << ": ";
     // cout << endl;
     
     finish;
@@ -492,7 +492,7 @@ int32_t solve1(int32_t testNo) {
 
 
 int32_t solve2(int32_t testNo) {
-    // cout << "Case #" << testNo << ": ";
+    // cout << "Case " << testNo << ": ";
     // cout << endl;
     
     finish;
@@ -501,7 +501,7 @@ int32_t solve2(int32_t testNo) {
 
 
 int32_t solve3(int32_t testNo) {
-    // cout << "Case #" << testNo << ": ";
+    // cout << "Case " << testNo << ": ";
     // cout << endl;
     
     finish;
