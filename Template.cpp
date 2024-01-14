@@ -1,54 +1,20 @@
-#include <iostream>
-#include <iomanip>
-#include <chrono>
+#include <bits/stdc++.h>
 
-#include <cmath>
-#include <cstring>
-#include <algorithm>
-
-
-#include <set>
-#include <map>
-#include <list>
-#include <stack>
-#include <queue>
-#include <deque>
-#include <utility>
-#include <string>
-#include <vector>
-#include <bitset>
+using namespace std;
 
 
 
-using std::min;
-using std::max;
-using std::get;
-using std::sort;
-using std::swap;
-using std::fixed;
-using std::to_string;
-using std::make_pair;
-using std::upper_bound;
-using std::lower_bound;
-using std::setprecision;
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
 
-using std::cin;
-using std::cout;
 
-using std::set;
-using std::map;
-using std::list;
-using std::pair;
-using std::less;
-using std::tuple;
-using std::stack;
-using std::queue;
-using std::deque;
-using std::string;
-using std::vector;
-using std::bitset;
-using std::greater;
-using std::priority_queue;
+using namespace __gnu_pbds;
+
+
+template<typename dataType>
+using ordered_set = tree<dataType, null_type, less<dataType>, rb_tree_tag, tree_order_statistics_node_update>;
+template<typename dataType1, typename dataType2>
+using ordered_map = tree<dataType1, dataType2, less<dataType1>, rb_tree_tag, tree_order_statistics_node_update>;
 
 
 
@@ -447,7 +413,7 @@ int32_t main() {
 
     #ifdef LOCAL
         freopen("input.txt", "r", stdin);
-        freopen("output.txt", "w", stdout);
+        // freopen("output.txt", "w", stdout);
         using namespace std::chrono;
         cout << fixed << setprecision(9);
         auto begin = steady_clock::now();
@@ -485,7 +451,7 @@ int32_t main() {
 int32_t solve1(int32_t testNo) {
     // cout << "Case " << testNo << ": ";
     // cout << endl;
-    
+
     finish;
 }
 
