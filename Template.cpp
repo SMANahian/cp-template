@@ -401,7 +401,6 @@ struct segtree {
     }
 };
 
-vi primes;
 
 int32_t main() {
 
