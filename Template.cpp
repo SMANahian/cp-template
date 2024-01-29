@@ -413,7 +413,7 @@ int32_t main() {
 
     #ifdef LOCAL
         freopen("input.txt", "r", stdin);
-        // freopen("output.txt", "w", stdout);
+        freopen("output.txt", "w", stdout);
         using namespace std::chrono;
         cout << fixed << setprecision(9);
         auto begin = steady_clock::now();
