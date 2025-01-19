@@ -103,6 +103,14 @@ typedef pair<lli, lli>                      pll;
 
 
 
+long long pow(long long a, long long b) {
+    long long ans = 1;
+    for(int i=0; i<b; i++){
+        ans = ans*a;
+    }
+    return ans;
+}
+
 
 template<typename dataType1>
 inline void print(dataType1 a) {cout << a << endl;}
